@@ -12,16 +12,18 @@ namespace Affinity.Controllers
 {
     public class UserManagerController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        private ApplicationUserManager UserManager;
+        private static ApplicationDbContext db = new ApplicationDbContext();
+
+        private ApplicationUserManager UserManager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
         // GET: UserManager
         public ActionResult Index()
         {
             return View();
         }
 
-        public bool AddUser(string Email, string pwdHash)
+        public bool AddUser(string Email, string pwdHash)// requires Email and pwd in hash format to work.
         {
+            
             var user = new ApplicationUser { UserName = Email, Email = Email };
 
             var result = UserManager.Create(user, pwdHash);
@@ -54,6 +56,11 @@ namespace Affinity.Controllers
             {
                 return false;
             }
+        }
+
+        public void UpdateUser()
+        {
+
         }
     }
 }
