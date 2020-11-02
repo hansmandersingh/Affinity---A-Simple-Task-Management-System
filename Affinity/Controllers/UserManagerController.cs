@@ -1,4 +1,6 @@
 ﻿using Affinity.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,15 +13,47 @@ namespace Affinity.Controllers
     public class UserManagerController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationUserManager UserManager;
         // GET: UserManager
         public ActionResult Index()
         {
             return View();
         }
 
-        public void AddUser(string email, string pwdHash)
+        public bool AddUser(string Email, string pwdHash)
         {
-            
+            var user = new ApplicationUser { UserName = Email, Email = Email };
+
+            var result = UserManager.Create(user, pwdHash);
+
+            if(result.Succeeded)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteUser(string UserId)
+        {
+            var user = db.Users.Find(UserId);
+
+            if (user != null)
+            {
+                var result = UserManager.Delete(user);
+
+                if(result.Succeeded)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            } else
+            {
+                return false;
+            }
         }
     }
 }
