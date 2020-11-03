@@ -87,5 +87,10 @@ namespace Affinity.Controllers
                 return false;
             }
         }
+
+        public bool CheckIfUserIsInRole(string userId, string roleName)
+        {
+            return UserManager.IsInRole(userId, roleName);
+        }
     }
 }
