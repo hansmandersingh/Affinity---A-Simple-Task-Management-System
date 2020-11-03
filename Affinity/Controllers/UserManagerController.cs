@@ -59,7 +59,7 @@ namespace Affinity.Controllers
             }
         }
 
-        public void UpdateUser(ApplicationUser user)
+        public bool UpdateUser(ApplicationUser user)
         {
             var userToUpdate = UserManager.FindById(user.Id);
 
@@ -69,6 +69,16 @@ namespace Affinity.Controllers
                 userToUpdate.Email = user.Email;
                 userToUpdate.PhoneNumber = user.PhoneNumber;
                 userToUpdate.PasswordHash = user.PasswordHash;
+            }
+
+            var result = UserManager.Update(userToUpdate);
+
+            if(result.Succeeded)
+            {
+                return true;
+            } else
+            {
+                return false;
             }
         }
         public List<string> GetAllRolesForUser(string userId)
