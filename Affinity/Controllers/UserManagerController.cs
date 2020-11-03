@@ -15,6 +15,7 @@ namespace Affinity.Controllers
         private static ApplicationDbContext db = new ApplicationDbContext();
 
         private ApplicationUserManager UserManager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
+        private RoleManager<IdentityRole> RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
         // GET: UserManager
         public ActionResult Index()
         {
@@ -60,7 +61,31 @@ namespace Affinity.Controllers
 
         public void UpdateUser(ApplicationUser user)
         {
+            var userToUpdate = UserManager.FindById(user.Id);
 
+            if(userToUpdate != null)
+            {
+                userToUpdate.UserName = user.UserName;
+                userToUpdate.Email = user.Email;
+                userToUpdate.PhoneNumber = user.PhoneNumber;
+                userToUpdate.PasswordHash = user.PasswordHash;
+            }
+        }
+        public List<string> GetAllRolesForUser(string userId)
+        {
+            return UserManager.GetRoles(userId).ToList();
+        }
+        public bool AssignRoleToUser(string userId, string roleName)
+        {
+            var result = UserManager.AddToRole(userId, roleName);
+
+            if (result.Succeeded)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
     }
 }
