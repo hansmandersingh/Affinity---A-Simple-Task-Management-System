@@ -97,10 +97,77 @@ namespace Affinity.Controllers
                 return false;
             }
         }
+        public bool DeleteUserFromRole(string userId, string roleName)
+        {
+            roleName = roleName.ToLower();
+            if (RoleManager.RoleExists(roleName) && UserManager.FindById(userId) != null)
+            {
+                if (UserManager.IsInRole(userId, roleName))
+                {
+                    var result = UserManager.RemoveFromRole(userId, roleName);
 
+                    if (result.Succeeded)
+                    {
+                        return true;
+                    } else
+                    {
+                        return false;
+                    }
+                } else
+                {
+                    return false;
+                }
+            } else
+            {
+                return false;
+            }
+        }
         public bool CheckIfUserIsInRole(string userId, string roleName)
         {
+            roleName = roleName.ToLower();
             return UserManager.IsInRole(userId, roleName);
+        }
+
+        public bool CreateRole(string roleName)
+        {
+            if(RoleManager.RoleExists(roleName))
+            {
+                return true;
+            } else
+            {
+                var result = RoleManager.Create(new IdentityRole(roleName));
+
+                if (result.Succeeded)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool DeleteRole(string roleName)
+        {
+            if (RoleManager.RoleExists(roleName))
+            {
+                var users = RoleManager.FindByName(roleName).Users.Select(u => u.UserId).ToList();
+
+                users.ForEach(userId => { UserManager.RemoveFromRole(userId, roleName); });
+
+                var result = RoleManager.Delete(RoleManager.FindByName(roleName));
+
+                if (result.Succeeded)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            } else
+            {
+                return false;
+            }
         }
     }
 }
