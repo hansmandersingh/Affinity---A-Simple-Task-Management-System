@@ -14,7 +14,7 @@ namespace Affinity.Controllers
     {
         private static ApplicationDbContext db = new ApplicationDbContext();
 
-        private ApplicationUserManager UserManager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));
+        private UserManager<IdentityUser> UserManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(db));
         private RoleManager<IdentityRole> RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
         // GET: UserManager
         public ActionResult Index()
