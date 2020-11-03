@@ -58,7 +58,7 @@ namespace Affinity.Controllers
             }
         }
 
-        public void UpdateUser()
+        public void UpdateUser(ApplicationUser user)
         {
 
         }
