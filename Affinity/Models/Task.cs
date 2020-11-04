@@ -10,9 +10,17 @@ namespace Affinity.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string TaskContent { get; set; }
+        public DateTime Time { get; set; }
+        public int CompletedPercentage { get; set; }
         public int ProjectId { get; set; }
         public Project Project { get; set; }
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
+        public Task()
+        {
+            Time = DateTime.Now;
+
+        }
     }
 }

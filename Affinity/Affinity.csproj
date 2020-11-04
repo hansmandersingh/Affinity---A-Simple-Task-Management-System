@@ -170,6 +170,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Migrations\202011041524559_ClassChanges.cs" />
+    <Compile Include="Migrations\202011041524559_ClassChanges.Designer.cs">
+      <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ProjectHelper.cs" />
     <Compile Include="Models\UserManager.cs" />
     <Compile Include="Global.asax.cs">
@@ -279,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011031751405_RelationshipChangesBWUserANDTask.resx">
       <DependentUpon>202011031751405_RelationshipChangesBWUserANDTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011041524559_ClassChanges.resx">
+      <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
