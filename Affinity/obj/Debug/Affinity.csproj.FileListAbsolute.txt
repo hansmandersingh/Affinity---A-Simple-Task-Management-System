@@ -220,3 +220,5 @@ C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.csproj.CoreCompileInp
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.csproj.CopyComplete
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.dll
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.pdb
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.RelationshipChangesBWUserANDTask.resources
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.ClassChanges.resources
