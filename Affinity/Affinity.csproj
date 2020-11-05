@@ -261,6 +261,7 @@
     <Content Include="Views\Admin\AllUsers.cshtml" />
     <Content Include="Views\Admin\ShowAllRoles.cshtml" />
     <Content Include="Views\Admin\CreateRole.cshtml" />
+    <Content Include="Views\Admin\AddUserToRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

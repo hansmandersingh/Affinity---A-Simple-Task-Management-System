@@ -44,5 +44,25 @@ namespace Affinity.Controllers
             db.SaveChanges();
             return RedirectToAction("ShowAllRoles");
         }
+
+        public ActionResult AddUserToRole()
+        {
+            ViewBag.UsersList = db.Users.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddUserToRole(string userId, string roleName)
+        {
+            UserManager.AssignRoleToUser(userId, roleName);
+            db.SaveChanges();
+            ViewBag.UsersList = db.Users.ToList();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteRole(string roleName)
+        {
+            return View();
+        }
     }
 }

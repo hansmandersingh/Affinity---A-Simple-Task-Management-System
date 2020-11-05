@@ -13,7 +13,7 @@ namespace Affinity.Controllers
     {
         private static ApplicationDbContext db = new ApplicationDbContext();
 
-        private static UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(db));
+        private static UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
         private static RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
 
         public static List<string> GetAllUsers()
