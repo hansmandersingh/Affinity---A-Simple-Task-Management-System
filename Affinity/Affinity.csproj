@@ -176,6 +176,7 @@
       <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ProjectHelper.cs" />
+    <Compile Include="Models\TaskHelper.cs" />
     <Compile Include="Models\UserManager.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
