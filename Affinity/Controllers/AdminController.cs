@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace Affinity.Controllers
 {
@@ -60,9 +61,17 @@ namespace Affinity.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DeleteRole(string roleName)
+        public ActionResult DeleteRole()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteRole(string roleName)
+        {
+            UserManager.DeleteRole(roleName);
+            db.SaveChanges();
+            return RedirectToAction("ShowAllRoles");
         }
     }
 }
