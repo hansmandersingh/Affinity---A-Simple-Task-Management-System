@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Affinity.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public class AdminController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
