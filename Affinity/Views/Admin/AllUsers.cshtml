@@ -1,0 +1,15 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "AllUsers";
+}
+
+<h2>All Users are here.</h2>
+
+<ul>
+    @foreach(var user in Model)
+    {
+        <li style="list-style:none">
+            @user
+        </li>
+    }
+</ul>

@@ -6,28 +6,26 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace Affinity.Controllers
 {
-    public class UserManagerController : Controller
+    public static class UserManager
     {
         private static ApplicationDbContext db = new ApplicationDbContext();
 
-        private UserManager<IdentityUser> UserManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(db));
-        private RoleManager<IdentityRole> RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
-        // GET: UserManager
-        public ActionResult Index()
-        {
-            return View();
-        }
+        private static UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(db));
+        private static RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
 
-        public bool AddUser(string Email, string pwdHash)// requires Email and pwd in hash format to work.
+        public static List<string> GetAllUsers()
+        {
+            return db.Users.Select(s => s.UserName).ToList();
+        }
+        public static bool AddUser(string Email, string pwdHash)// requires Email and pwd in hash format to work.
         {
             
             var user = new ApplicationUser { UserName = Email, Email = Email };
 
-            var result = UserManager.Create(user, pwdHash);
+            var result = userManager.Create(user, pwdHash);
 
             if(result.Succeeded)
             {
@@ -38,13 +36,13 @@ namespace Affinity.Controllers
             }
         }
 
-        public bool DeleteUser(string UserId)
+        public static bool DeleteUser(string UserId)
         {
             var user = db.Users.Find(UserId);
 
             if (user != null)
             {
-                var result = UserManager.Delete(user);
+                var result = userManager.Delete(user);
 
                 if(result.Succeeded)
                 {
@@ -59,9 +57,9 @@ namespace Affinity.Controllers
             }
         }
 
-        public bool UpdateUser(ApplicationUser user)
+        public static bool UpdateUser(ApplicationUser user)
         {
-            var userToUpdate = UserManager.FindById(user.Id);
+            var userToUpdate = userManager.FindById(user.Id);
 
             if(userToUpdate != null)
             {
@@ -71,7 +69,7 @@ namespace Affinity.Controllers
                 userToUpdate.PasswordHash = user.PasswordHash;
             }
 
-            var result = UserManager.Update(userToUpdate);
+            var result = userManager.Update(userToUpdate);
 
             if(result.Succeeded)
             {
@@ -81,13 +79,13 @@ namespace Affinity.Controllers
                 return false;
             }
         }
-        public List<string> GetAllRolesForUser(string userId)
+        public static List<string> GetAllRolesForUser(string userId)
         {
-            return UserManager.GetRoles(userId).ToList();
+            return userManager.GetRoles(userId).ToList();
         }
-        public bool AssignRoleToUser(string userId, string roleName)
+        public static bool AssignRoleToUser(string userId, string roleName)
         {
-            var result = UserManager.AddToRole(userId, roleName);
+            var result = userManager.AddToRole(userId, roleName);
 
             if (result.Succeeded)
             {
@@ -97,14 +95,14 @@ namespace Affinity.Controllers
                 return false;
             }
         }
-        public bool DeleteUserFromRole(string userId, string roleName)
+        public static bool DeleteUserFromRole(string userId, string roleName)
         {
             roleName = roleName.ToLower();
-            if (RoleManager.RoleExists(roleName) && UserManager.FindById(userId) != null)
+            if (roleManager.RoleExists(roleName) && userManager.FindById(userId) != null)
             {
-                if (UserManager.IsInRole(userId, roleName))
+                if (userManager.IsInRole(userId, roleName))
                 {
-                    var result = UserManager.RemoveFromRole(userId, roleName);
+                    var result = userManager.RemoveFromRole(userId, roleName);
 
                     if (result.Succeeded)
                     {
@@ -122,20 +120,20 @@ namespace Affinity.Controllers
                 return false;
             }
         }
-        public bool CheckIfUserIsInRole(string userId, string roleName)
+        public static bool CheckIfUserIsInRole(string userId, string roleName)
         {
             roleName = roleName.ToLower();
-            return UserManager.IsInRole(userId, roleName);
+            return userManager.IsInRole(userId, roleName);
         }
 
-        public bool CreateRole(string roleName)
+        public static bool CreateRole(string roleName)
         {
-            if(RoleManager.RoleExists(roleName))
+            if(roleManager.RoleExists(roleName))
             {
                 return true;
             } else
             {
-                var result = RoleManager.Create(new IdentityRole(roleName));
+                var result = roleManager.Create(new IdentityRole(roleName));
 
                 if (result.Succeeded)
                 {
@@ -147,15 +145,15 @@ namespace Affinity.Controllers
             }
         }
 
-        public bool DeleteRole(string roleName)
+        public static bool DeleteRole(string roleName)
         {
-            if (RoleManager.RoleExists(roleName))
+            if (roleManager.RoleExists(roleName))
             {
-                var users = RoleManager.FindByName(roleName).Users.Select(u => u.UserId).ToList();
+                var users = roleManager.FindByName(roleName).Users.Select(u => u.UserId).ToList();
 
-                users.ForEach(userId => { UserManager.RemoveFromRole(userId, roleName); });
+                users.ForEach(userId => { userManager.RemoveFromRole(userId, roleName); });
 
-                var result = RoleManager.Delete(RoleManager.FindByName(roleName));
+                var result = roleManager.Delete(roleManager.FindByName(roleName));
 
                 if (result.Succeeded)
                 {
