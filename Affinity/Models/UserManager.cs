@@ -134,7 +134,7 @@ namespace Affinity.Controllers
             } else
             {
                 var result = roleManager.Create(new IdentityRole(roleName));
-
+                db.SaveChanges();
                 if (result.Succeeded)
                 {
                     return true;

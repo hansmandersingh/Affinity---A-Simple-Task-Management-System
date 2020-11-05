@@ -36,5 +36,13 @@ namespace Affinity.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult CreateRole(string roleName)
+        {
+            UserManager.CreateRole(roleName);
+            db.SaveChanges();
+            return RedirectToAction("ShowAllRoles");
+        }
     }
 }
