@@ -40,7 +40,7 @@ namespace Affinity.Controllers
         public ActionResult Create()
         {
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name");
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace Affinity.Controllers
             }
 
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", task.ProjectId);
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", task.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", task.UserId);
             return View(task);
         }
 
@@ -76,7 +76,7 @@ namespace Affinity.Controllers
                 return HttpNotFound();
             }
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", task.ProjectId);
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", task.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", task.UserId);
             return View(task);
         }
 
@@ -94,7 +94,7 @@ namespace Affinity.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", task.ProjectId);
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", task.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", task.UserId);
             return View(task);
         }
 
