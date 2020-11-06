@@ -61,7 +61,7 @@ namespace Affinity.Models
             return db.Tasks.Find(id);
         }
 
-        public void AssignUserATask(int taskId, string userId)
+        public static void AssignUserATask(int taskId, string userId)
         {
             Task task = db.Tasks.Find(taskId);
 
