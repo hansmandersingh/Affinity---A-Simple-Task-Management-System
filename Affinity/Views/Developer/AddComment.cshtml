@@ -1,0 +1,14 @@
+﻿@model Affinity.Models.Task
+@{
+    ViewBag.Title = "AddComment";
+}
+
+<h2>Add Comment on "@Model.Name" Task</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.Hidden("id", (int)ViewBag.TaskId)
+    <h4>Enter your comment here : </h4>
+    @Html.TextBox("commentText")
+    <input type="submit" value="Add Comment" name="save"/>
+}

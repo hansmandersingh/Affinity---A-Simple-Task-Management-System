@@ -10,107 +10,116 @@ using Affinity.Models;
 
 namespace Affinity.Controllers
 {
-    public class ProjectsController : Controller
+    public class TasksController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Projects
+        // GET: Tasks
         public ActionResult Index()
         {
-            return View(db.Projects.ToList());
+            var tasks = db.Tasks.Include(t => t.Project).Include(t => t.User);
+            return View(tasks.ToList());
         }
 
-        // GET: Projects/Details/5
+        // GET: Tasks/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Task task = db.Tasks.Find(id);
+            if (task == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+            return View(task);
         }
 
-        // GET: Projects/Create
+        // GET: Tasks/Create
         public ActionResult Create()
         {
+            ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name");
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
-        // POST: Projects/Create
+        // POST: Tasks/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Time,IsCompleted")] Project project)
+        public ActionResult Create([Bind(Include = "Id,Name,TaskContent,Time,CompletedPercentage,ProjectId,UserId")] Task task)
         {
             if (ModelState.IsValid)
             {
-                db.Projects.Add(project);
+                db.Tasks.Add(task);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(project);
+            ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", task.ProjectId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", task.UserId);
+            return View(task);
         }
 
-        // GET: Projects/Edit/5
+        // GET: Tasks/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Task task = db.Tasks.Find(id);
+            if (task == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+            ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", task.ProjectId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", task.UserId);
+            return View(task);
         }
 
-        // POST: Projects/Edit/5
+        // POST: Tasks/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Time,IsCompleted")] Project project)
+        public ActionResult Edit([Bind(Include = "Id,Name,TaskContent,Time,CompletedPercentage,ProjectId,UserId")] Task task)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(project).State = EntityState.Modified;
+                db.Entry(task).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(project);
+            ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", task.ProjectId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", task.UserId);
+            return View(task);
         }
 
-        // GET: Projects/Delete/5
+        // GET: Tasks/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Task task = db.Tasks.Find(id);
+            if (task == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+            return View(task);
         }
 
-        // POST: Projects/Delete/5
+        // POST: Tasks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Project project = db.Projects.Find(id);
-            db.Projects.Remove(project);
+            Task task = db.Tasks.Find(id);
+            db.Tasks.Remove(task);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

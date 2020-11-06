@@ -12,10 +12,12 @@ namespace Affinity.Models
     public class ApplicationUser : IdentityUser
     {
         public ICollection<Task> Tasks { get; set; }
+        public ICollection<Comment> Notes { get; set; }
 
         public ApplicationUser()
         {
             Tasks = new HashSet<Task>();
+            Notes = new HashSet<Comment>();
         }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -30,6 +32,7 @@ namespace Affinity.Models
     {
         public DbSet<Project> Projects { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
