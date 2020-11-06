@@ -47,7 +47,23 @@ namespace Affinity.Controllers
             return RedirectToAction("Index");
         }
 
-        
-        
+        public ActionResult AddComment(int id)
+        {
+            ViewBag.TaskId = id;
+            var task = TaskHelper.getATask(id);
+            return View(task);
+        }
+
+        [HttpPost]
+        public ActionResult AddComment(int id, string commentText)
+        {
+            var task = TaskHelper.getATask(id);
+            Comment comment = new Comment() { Note = commentText, TaskId = task.Id, UserId = this.User.Identity.GetUserId() };
+            db.Comments.Add(comment);
+            db.SaveChanges();
+            ViewBag.TaskId = id;
+
+            return RedirectToAction("Index");
+        }
     }
 }
