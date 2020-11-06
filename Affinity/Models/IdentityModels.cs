@@ -12,12 +12,12 @@ namespace Affinity.Models
     public class ApplicationUser : IdentityUser
     {
         public ICollection<Task> Tasks { get; set; }
-        public ICollection<Note> Notes { get; set; }
+        public ICollection<Comment> Notes { get; set; }
 
         public ApplicationUser()
         {
             Tasks = new HashSet<Task>();
-            Notes = new HashSet<Note>();
+            Notes = new HashSet<Comment>();
         }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

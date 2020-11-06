@@ -184,7 +184,11 @@
     <Compile Include="Migrations\202011060533131_addedNotesClass.Designer.cs">
       <DependentUpon>202011060533131_addedNotesClass.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Note.cs" />
+    <Compile Include="Migrations\202011061444016_NameChangeForComment.cs" />
+    <Compile Include="Migrations\202011061444016_NameChangeForComment.Designer.cs">
+      <DependentUpon>202011061444016_NameChangeForComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\ProjectHelper.cs" />
     <Compile Include="Models\TaskHelper.cs" />
     <Compile Include="Models\UserManager.cs" />
@@ -313,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011060533131_addedNotesClass.resx">
       <DependentUpon>202011060533131_addedNotesClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011061444016_NameChangeForComment.resx">
+      <DependentUpon>202011061444016_NameChangeForComment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

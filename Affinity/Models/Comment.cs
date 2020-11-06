@@ -5,10 +5,10 @@ using System.Web;
 
 namespace Affinity.Models
 {
-    public class Note
+    public class Comment
     {
         public int Id { get; set; }
-        public string Comment { get; set; }
+        public string Note { get; set; }
         public int TaskId { get; set; }
         public Task Task { get; set; }
         public string UserId { get; set; }
