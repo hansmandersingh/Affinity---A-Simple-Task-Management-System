@@ -26,12 +26,14 @@ namespace Affinity.Controllers
 
         public ActionResult UpdateTaskPercentage(int id)
         {
+            ViewBag.id = id;
             return View(id);
         }
 
         [HttpPost]
         public ActionResult UpdateTaskPercentage(int id , int percentageVal)
         {
+            ViewBag.id = id;
             var task = TaskHelper.getATask(id);
             task.CompletedPercentage = percentageVal;
             db.SaveChanges();

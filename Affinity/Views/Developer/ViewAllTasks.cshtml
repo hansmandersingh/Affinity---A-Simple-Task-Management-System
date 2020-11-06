@@ -11,7 +11,7 @@
         @foreach(var task in Model)
         {
             <li>
-                @task.Name -- @task.CompletedPercentage % -- @task.Time -- @Html.ActionLink("Update Task Percentage", "UpdateTaskPercentage", "Developer", task.Id, null)
+                @task.Name -- @task.CompletedPercentage % -- @task.Time -- @Html.ActionLink("Update Task Percentage", "UpdateTaskPercentage", "Developer", new { id = task.Id }, null)
             </li>
         }
     </ul>

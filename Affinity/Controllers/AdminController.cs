@@ -73,5 +73,31 @@ namespace Affinity.Controllers
             db.SaveChanges();
             return RedirectToAction("ShowAllRoles");
         }
+
+        public ActionResult AssignATaskByDeveloper()
+        {
+            ViewBag.taskList = db.Tasks.ToList();
+            ViewBag.UserList = db.Users.ToList();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AssignATaskByDeveloper(int taskId, string userId)
+        {
+            
+            if (UserManager.CheckIfUserIsInRole(userId,"developer"))
+            {
+                TaskHelper.AssignUserATask(taskId, userId);
+                db.SaveChanges();
+                ViewBag.taskList = db.Tasks.ToList();
+                ViewBag.UserList = db.Users.ToList();
+                return RedirectToAction("Index");
+            } else
+            {
+                ViewBag.taskList = db.Tasks.ToList();
+                ViewBag.UserList = db.Users.ToList();
+                return View();
+            }
+            
+        }
     }
 }
