@@ -335,4 +335,6 @@ C:\Users\NAV\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\ob
 C:\Users\NAV\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.csproj.CopyComplete
 C:\Users\NAV\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.dll
 C:\Users\NAV\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.pdb
-C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.SmallFixMadeToApplicationUser.resources
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NewFieldAddedInTaskClass.resources
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.addedNotesClass.resources
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NameChangeForComment.resources

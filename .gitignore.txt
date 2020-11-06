@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 .suo
 .vs\
+=======
+*.suo
+>>>>>>> DeveloperLevelPermissions
