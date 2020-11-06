@@ -24,6 +24,10 @@ namespace Affinity.Controllers
             return View(allTasks);
         }
 
+        public ActionResult UpdateTask()
+        {
+            return View();
+        }
         
     }
 }

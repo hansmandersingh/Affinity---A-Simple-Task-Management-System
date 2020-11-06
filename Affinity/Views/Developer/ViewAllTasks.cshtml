@@ -11,7 +11,7 @@
         @foreach(var task in Model)
         {
             <li>
-                @task.Name
+                @task.Name -- @task.CompletedPercentage % -- @task.Time
             </li>
         }
     </ul>
