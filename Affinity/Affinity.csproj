@@ -172,9 +172,15 @@
     <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Migrations\202011041524559_ClassChanges.cs" />
     <Compile Include="Migrations\202011041524559_ClassChanges.Designer.cs">
       <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.cs" />
+    <Compile Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.Designer.cs">
+      <DependentUpon>202011060241358_SmallFixMadeToApplicationUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202011060510299_NewFieldAddedInTaskClass.cs" />
     <Compile Include="Migrations\202011060510299_NewFieldAddedInTaskClass.Designer.cs">
@@ -282,6 +288,16 @@
     <Content Include="Views\Developer\ViewAllTasks.cshtml" />
     <Content Include="Views\Developer\UpdateTaskPercentage.cshtml" />
     <Content Include="Views\Developer\AddComment.cshtml" />
+    <Content Include="Views\Projects\Create.cshtml" />
+    <Content Include="Views\Projects\Delete.cshtml" />
+    <Content Include="Views\Projects\Details.cshtml" />
+    <Content Include="Views\Projects\Edit.cshtml" />
+    <Content Include="Views\Projects\Index.cshtml" />
+    <Content Include="Views\Tasks\Create.cshtml" />
+    <Content Include="Views\Tasks\Delete.cshtml" />
+    <Content Include="Views\Tasks\Details.cshtml" />
+    <Content Include="Views\Tasks\Edit.cshtml" />
+    <Content Include="Views\Tasks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -312,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011041524559_ClassChanges.resx">
       <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.resx">
+      <DependentUpon>202011060241358_SmallFixMadeToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011060510299_NewFieldAddedInTaskClass.resx">
       <DependentUpon>202011060510299_NewFieldAddedInTaskClass.cs</DependentUpon>
