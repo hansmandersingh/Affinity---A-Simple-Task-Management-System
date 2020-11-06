@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Migrations\202011041524559_ClassChanges.cs" />
@@ -264,6 +265,8 @@
     <Content Include="Views\Admin\CreateRole.cshtml" />
     <Content Include="Views\Admin\AddUserToRole.cshtml" />
     <Content Include="Views\Admin\DeleteRole.cshtml" />
+    <Content Include="Views\Developer\Index.cshtml" />
+    <Content Include="Views\Developer\ViewAllTasks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
