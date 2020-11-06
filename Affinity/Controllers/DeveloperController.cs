@@ -24,9 +24,18 @@ namespace Affinity.Controllers
             return View(allTasks);
         }
 
-        public ActionResult UpdateTask()
+        public ActionResult UpdateTaskPercentage(int id)
         {
-            return View();
+            return View(id);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateTaskPercentage(int id , int percentageVal)
+        {
+            var task = TaskHelper.getATask(id);
+            task.CompletedPercentage = percentageVal;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
         
     }

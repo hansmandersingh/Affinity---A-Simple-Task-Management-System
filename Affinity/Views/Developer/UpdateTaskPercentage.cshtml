@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "UpdateTaskPercentage";
+}
+
+<h2>Update Task Percentage</h2>
+
+@using (Html.BeginForm())
+{
+    <h4>Enter a percentage for the task completion:</h4>
+    @Html.TextBox("percentageVal")
+    <input type="submit" value="Update Percentage" name="save"/>
+}

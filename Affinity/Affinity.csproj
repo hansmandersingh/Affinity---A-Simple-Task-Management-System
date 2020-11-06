@@ -271,6 +271,7 @@
     <Content Include="Views\Admin\DeleteRole.cshtml" />
     <Content Include="Views\Developer\Index.cshtml" />
     <Content Include="Views\Developer\ViewAllTasks.cshtml" />
+    <Content Include="Views\Developer\UpdateTaskPercentage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
