@@ -10,9 +10,12 @@
     <ul>
         @foreach(var task in Model)
         {
-            <li>
-                @task.Name -- @task.CompletedPercentage % -- @task.Time -- @Html.ActionLink("Update Task Percentage", "UpdateTaskPercentage", "Developer", new { id = task.Id }, null)
-            </li>
+        <li>
+            @task.Name -- @task.CompletedPercentage % -- @task.Time -- @Html.ActionLink("Update Task Percentage", "UpdateTaskPercentage", "Developer", new { id = task.Id }, null) -- @if (task.IsCompleted)
+            {@Html.ActionLink("Mark as uncompleted!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = false }, null)}
+        else
+        { @Html.ActionLink("Mark as completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = true }, null)}
+        </li>
         }
     </ul>
 }

@@ -41,9 +41,9 @@ namespace Affinity.Controllers
         }
 
         [HttpPost]
-        public ActionResult MarkTaskAsCompleted(int id , bool IsComp)
+        public ActionResult MarkTaskAsCompleted(int taskId , bool IsComp)
         {
-            var task = TaskHelper.getATask(id);
+            var task = TaskHelper.getATask(taskId);
             task.IsCompleted = IsComp;
             db.SaveChanges();
             return RedirectToAction("Index");
