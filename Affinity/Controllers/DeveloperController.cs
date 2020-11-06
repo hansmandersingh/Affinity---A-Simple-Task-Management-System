@@ -37,6 +37,15 @@ namespace Affinity.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult MarkTaskAsCompleted(int id , bool IsComp)
+        {
+            var task = TaskHelper.getATask(id);
+            task.IsCompleted = IsComp;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         
     }
 }
