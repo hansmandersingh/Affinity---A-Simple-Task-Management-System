@@ -180,6 +180,11 @@
     <Compile Include="Migrations\202011060510299_NewFieldAddedInTaskClass.Designer.cs">
       <DependentUpon>202011060510299_NewFieldAddedInTaskClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011060533131_addedNotesClass.cs" />
+    <Compile Include="Migrations\202011060533131_addedNotesClass.Designer.cs">
+      <DependentUpon>202011060533131_addedNotesClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Note.cs" />
     <Compile Include="Models\ProjectHelper.cs" />
     <Compile Include="Models\TaskHelper.cs" />
     <Compile Include="Models\UserManager.cs" />
@@ -305,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011060510299_NewFieldAddedInTaskClass.resx">
       <DependentUpon>202011060510299_NewFieldAddedInTaskClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011060533131_addedNotesClass.resx">
+      <DependentUpon>202011060533131_addedNotesClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

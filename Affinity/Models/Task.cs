@@ -20,8 +20,10 @@ namespace Affinity.Models
         public Project Project { get; set; }
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
+        public ICollection<Note> Notes { get; set; }
         public Task()
         {
+            Notes = new HashSet<Note>();
             Time = DateTime.Now;
             CompletedPercentage = 0;
         }
