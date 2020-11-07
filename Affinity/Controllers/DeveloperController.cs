@@ -36,15 +36,17 @@ namespace Affinity.Controllers
             ViewBag.id = id;
             var task = TaskHelper.getATask(id);
             task.CompletedPercentage = percentageVal;
+            TaskHelper.updateTask(task);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
+        //[HttpPost]
         public ActionResult MarkTaskAsCompleted(int taskId , bool IsComp)
         {
             var task = TaskHelper.getATask(taskId);
             task.IsCompleted = IsComp;
+            TaskHelper.updateTask(task);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
