@@ -15,11 +15,6 @@ namespace Affinity.Controllers
         // GET: Developer
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult ViewAllTasks()
-        {
             var allTasks = TaskHelper.GetAllTasksByADeveloper(this.User.Identity.GetUserId());
             return View(allTasks);
         }
