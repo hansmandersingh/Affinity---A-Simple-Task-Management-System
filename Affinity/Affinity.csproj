@@ -195,6 +195,10 @@
     <Compile Include="Migrations\202011061444016_NameChangeForComment.Designer.cs">
       <DependentUpon>202011061444016_NameChangeForComment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011072142096_AddedPriorityToProjectAndTask.cs" />
+    <Compile Include="Migrations\202011072142096_AddedPriorityToProjectAndTask.Designer.cs">
+      <DependentUpon>202011072142096_AddedPriorityToProjectAndTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\ProjectHelper.cs" />
     <Compile Include="Models\TaskHelper.cs" />
@@ -346,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011061444016_NameChangeForComment.resx">
       <DependentUpon>202011061444016_NameChangeForComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011072142096_AddedPriorityToProjectAndTask.resx">
+      <DependentUpon>202011072142096_AddedPriorityToProjectAndTask.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
