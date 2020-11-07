@@ -13,14 +13,23 @@ namespace Affinity.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: Developer
-        public ActionResult Index()
+        public ActionResult Index(string sortingOrder)
         {
-            return View();
-        }
+            ICollection<Task> allTasks;
 
-        public ActionResult ViewAllTasks()
-        {
-            var allTasks = TaskHelper.GetAllTasksByADeveloper(this.User.Identity.GetUserId());
+            switch(sortingOrder)
+            {
+                case "HighToLow":
+                    allTasks = TaskHelper.GetAllTasksByADeveloper(User.Identity.GetUserId()).OrderByDescending(a => a.Priority).ToList();
+                    break;
+                case "LowToHigh":
+                    allTasks = TaskHelper.GetAllTasksByADeveloper(this.User.Identity.GetUserId()).OrderBy(o => o.Priority).ToList();
+                    break;
+                default:
+                    allTasks = TaskHelper.GetAllTasksByADeveloper(this.User.Identity.GetUserId());
+                    break;
+            }
+            
             return View(allTasks);
         }
 
