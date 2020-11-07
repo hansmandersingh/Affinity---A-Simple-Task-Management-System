@@ -7,6 +7,12 @@ using System.Web;
 
 namespace Affinity.Models
 {
+    public enum Priority
+    {
+        Low,
+        Medium,
+        High
+    }
     public class Task
     {
         public int Id { get; set; }
@@ -21,6 +27,7 @@ namespace Affinity.Models
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
         public ICollection<Comment> Notes { get; set; }
+        public Priority Priority { get; set; }
         public Task()
         {
             Notes = new HashSet<Comment>();

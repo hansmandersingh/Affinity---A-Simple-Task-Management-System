@@ -13,6 +13,7 @@ namespace Affinity.Models
         public DateTime Time { get; set; }
         public bool IsCompleted { get; set; }
         public ICollection<Task> Tasks { get; set; }
+        public Priority Priority { get; set; }
         public Project()
         {
             Time = DateTime.Now;
