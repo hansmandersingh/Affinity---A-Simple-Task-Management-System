@@ -28,6 +28,7 @@ namespace Affinity.Models
         public ApplicationUser User { get; set; }
         public ICollection<Comment> Notes { get; set; }
         public Priority Priority { get; set; }
+        public DateTime DeadLine { get; set; }
         public Task()
         {
             Notes = new HashSet<Comment>();
