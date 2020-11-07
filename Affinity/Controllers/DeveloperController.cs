@@ -26,23 +26,26 @@ namespace Affinity.Controllers
 
         public ActionResult UpdateTaskPercentage(int id)
         {
+            ViewBag.id = id;
             return View(id);
         }
 
         [HttpPost]
         public ActionResult UpdateTaskPercentage(int id , int percentageVal)
         {
+            ViewBag.id = id;
             var task = TaskHelper.getATask(id);
             task.CompletedPercentage = percentageVal;
+            TaskHelper.updateTask(task);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ActionResult MarkTaskAsCompleted(int id , bool IsComp)
+        public ActionResult MarkTaskAsCompleted(int taskId , bool IsComp)
         {
-            var task = TaskHelper.getATask(id);
+            var task = TaskHelper.getATask(taskId);
             task.IsCompleted = IsComp;
+            TaskHelper.updateTask(task);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -51,6 +54,7 @@ namespace Affinity.Controllers
         {
             ViewBag.TaskId = id;
             var task = TaskHelper.getATask(id);
+
             return View(task);
         }
 

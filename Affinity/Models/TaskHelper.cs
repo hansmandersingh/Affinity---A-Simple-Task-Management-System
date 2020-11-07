@@ -71,5 +71,16 @@ namespace Affinity.Models
                 db.SaveChanges();
             }
         }
+
+        public static void UpdateTaskPercentage(int taskId, int percentageVal)
+        {
+            Task task = db.Tasks.Find(taskId);
+
+            if (task != null)
+            {
+                task.CompletedPercentage = percentageVal;
+                db.SaveChanges();
+            }
+        }
     }
 }
