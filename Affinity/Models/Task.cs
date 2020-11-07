@@ -29,9 +29,11 @@ namespace Affinity.Models
         public ICollection<Comment> Notes { get; set; }
         public Priority Priority { get; set; }
         public DateTime DeadLine { get; set; }
+        public ICollection<Notification> Notifications { get; set; }
         public Task()
         {
             Notes = new HashSet<Comment>();
+            Notifications = new HashSet<Notification>();
             Time = DateTime.Now;
             CompletedPercentage = 0;
         }

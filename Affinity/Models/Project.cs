@@ -15,10 +15,12 @@ namespace Affinity.Models
         public ICollection<Task> Tasks { get; set; }
         public Priority Priority { get; set; }
         public DateTime DeadLine { get; set; }
+        public ICollection<Notification> Notifications { get; set; }
         public Project()
         {
             Time = DateTime.Now;
             Tasks = new HashSet<Task>();
+            Notifications = new HashSet<Notification>();
         }
     }
 }

@@ -203,7 +203,12 @@
     <Compile Include="Migrations\202011072309225_AddDeadlineFeature.Designer.cs">
       <DependentUpon>202011072309225_AddDeadlineFeature.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011072322439_AddNotificationClassAndRelations.cs" />
+    <Compile Include="Migrations\202011072322439_AddNotificationClassAndRelations.Designer.cs">
+      <DependentUpon>202011072322439_AddNotificationClassAndRelations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\ProjectHelper.cs" />
     <Compile Include="Models\TaskHelper.cs" />
     <Compile Include="Models\UserManager.cs" />
@@ -359,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011072309225_AddDeadlineFeature.resx">
       <DependentUpon>202011072309225_AddDeadlineFeature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011072322439_AddNotificationClassAndRelations.resx">
+      <DependentUpon>202011072322439_AddNotificationClassAndRelations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

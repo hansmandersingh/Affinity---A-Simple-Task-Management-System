@@ -341,3 +341,4 @@ C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NameChange
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.SmallFixMadeToApplicationUser.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddedPriorityToProjectAndTask.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddDeadlineFeature.resources
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddNotificationClassAndRelations.resources
