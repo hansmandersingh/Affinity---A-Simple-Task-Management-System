@@ -14,7 +14,7 @@
             @task.Name -- @task.CompletedPercentage % -- @task.Time -- @Html.ActionLink("Update Task Percentage", "UpdateTaskPercentage", "Developer", new { id = task.Id }, null) -- @if (task.IsCompleted)
             {@Html.ActionLink("Mark as not completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = false }, null)}
         else
-        { @Html.ActionLink("Mark as completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = true }, null)}
+        { @Html.ActionLink("Mark as completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = true }, null)} -- @Html.ActionLink("Add Comment", "AddComment", "Developer", new { id = task.Id }, null )
         </li>
         }
     </ul>

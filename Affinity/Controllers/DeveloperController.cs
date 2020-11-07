@@ -41,7 +41,6 @@ namespace Affinity.Controllers
             return RedirectToAction("Index");
         }
 
-        //[HttpPost]
         public ActionResult MarkTaskAsCompleted(int taskId , bool IsComp)
         {
             var task = TaskHelper.getATask(taskId);
@@ -55,6 +54,7 @@ namespace Affinity.Controllers
         {
             ViewBag.TaskId = id;
             var task = TaskHelper.getATask(id);
+
             return View(task);
         }
 
