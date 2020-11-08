@@ -173,15 +173,12 @@
     <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProjectManagerController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Migrations\202011041524559_ClassChanges.cs" />
     <Compile Include="Migrations\202011041524559_ClassChanges.Designer.cs">
       <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.cs" />
-    <Compile Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.Designer.cs">
-      <DependentUpon>202011060241358_SmallFixMadeToApplicationUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202011060510299_NewFieldAddedInTaskClass.cs" />
     <Compile Include="Migrations\202011060510299_NewFieldAddedInTaskClass.Designer.cs">
@@ -311,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ProjectManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -337,9 +335,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011041524559_ClassChanges.resx">
       <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.resx">
-      <DependentUpon>202011060241358_SmallFixMadeToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011060510299_NewFieldAddedInTaskClass.resx">
       <DependentUpon>202011060510299_NewFieldAddedInTaskClass.cs</DependentUpon>
