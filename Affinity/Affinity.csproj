@@ -179,10 +179,6 @@
     <Compile Include="Migrations\202011041524559_ClassChanges.Designer.cs">
       <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.cs" />
-    <Compile Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.Designer.cs">
-      <DependentUpon>202011060241358_SmallFixMadeToApplicationUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202011060510299_NewFieldAddedInTaskClass.cs" />
     <Compile Include="Migrations\202011060510299_NewFieldAddedInTaskClass.Designer.cs">
       <DependentUpon>202011060510299_NewFieldAddedInTaskClass.cs</DependentUpon>
@@ -337,9 +333,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011041524559_ClassChanges.resx">
       <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.resx">
-      <DependentUpon>202011060241358_SmallFixMadeToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011060510299_NewFieldAddedInTaskClass.resx">
       <DependentUpon>202011060510299_NewFieldAddedInTaskClass.cs</DependentUpon>
