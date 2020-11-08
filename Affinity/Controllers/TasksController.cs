@@ -123,6 +123,12 @@ namespace Affinity.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult UnfinishedTask()
+        {
+            var result = db.Tasks.Where(t => t.IsCompleted == false && t.Time < DateTime.Now).Include("Project").Include("User").ToList();
+            return View(result);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
