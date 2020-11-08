@@ -29,6 +29,24 @@ namespace Affinity.Controllers
                     allTasks = TaskHelper.GetAllTasksByADeveloper(this.User.Identity.GetUserId());
                     break;
             }
+
+            foreach(var task in allTasks)
+            {
+                if ((DateTime.Now - task.DeadLine).Days <= 1)
+                {
+                    Notification notification = new Notification() 
+                    { 
+                        TaskId = task.Id, 
+                        ProjectId = task.ProjectId, 
+                        NotificationDetails = "Heads up you are about to be at your project deadline." 
+                    };
+
+                    if (!task.Notifications.Contains(notification))
+                    {
+
+                    }
+                }
+            }
             
             return View(allTasks);
         }
