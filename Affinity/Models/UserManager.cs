@@ -85,6 +85,7 @@ namespace Affinity.Controllers
         }
         public static bool AssignRoleToUser(string userId, string roleName)
         {
+            roleName = roleName.ToLower();
             var result = userManager.AddToRole(userId, roleName);
 
             if (result.Succeeded)
@@ -122,12 +123,14 @@ namespace Affinity.Controllers
         }
         public static bool CheckIfUserIsInRole(string userId, string roleName)
         {
+
             roleName = roleName.ToLower();
             return userManager.IsInRole(userId, roleName);
         }
 
         public static bool CreateRole(string roleName)
         {
+            roleName = roleName.ToLower();
             if(roleManager.RoleExists(roleName))
             {
                 return true;
@@ -147,6 +150,7 @@ namespace Affinity.Controllers
 
         public static bool DeleteRole(string roleName)
         {
+            roleName = roleName.ToLower();
             if (roleManager.RoleExists(roleName))
             {
                 var users = roleManager.FindByName(roleName).Users.Select(u => u.UserId).ToList();

@@ -6,18 +6,18 @@ using System.Web;
 
 namespace Affinity.Models
 {
-    public class TaskHelper
+    public static class TaskHelper
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private static ApplicationDbContext db = new ApplicationDbContext();
 
-        public void createTask(string Name, string UserId)
+        public static void createTask(string Name, string UserId)
         {
             Task task = new Task() { Name = Name, UserId = UserId };
             db.Tasks.Add(task);
             db.SaveChanges();
         }
 
-        public void updateTask(Task t)
+        public static void updateTask(Task t)
         {
             Task task = db.Tasks.Find(t.Id);
 
@@ -33,7 +33,7 @@ namespace Affinity.Models
             }
         }
 
-        public void deleteTask(int id)
+        public static void deleteTask(int id)
         {
             Task task = db.Tasks.Find(id);
 
@@ -44,23 +44,41 @@ namespace Affinity.Models
             }
         }
 
-        public List<Task> getAllTasks()
+        public static List<Task> getAllTasks()
         {
             return db.Tasks.ToList();
         }
 
-        public Task getATask(int id)
+        public static List<Task> GetAllTasksByADeveloper(string userId)
+        {
+            var allTasks = db.Tasks.Where(i => i.User.Id == userId).ToList();
+
+            return allTasks;
+        }
+
+        public static Task getATask(int id)
         {
             return db.Tasks.Find(id);
         }
 
-        public void AssignUserATask(int taskId, string userId)
+        public static void AssignUserATask(int taskId, string userId)
         {
             Task task = db.Tasks.Find(taskId);
 
             if (task != null)
             {
                 task.UserId = userId;
+                db.SaveChanges();
+            }
+        }
+
+        public static void UpdateTaskPercentage(int taskId, int percentageVal)
+        {
+            Task task = db.Tasks.Find(taskId);
+
+            if (task != null)
+            {
+                task.CompletedPercentage = percentageVal;
                 db.SaveChanges();
             }
         }

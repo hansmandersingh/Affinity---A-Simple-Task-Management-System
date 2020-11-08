@@ -1,0 +1,26 @@
+﻿@model List<Affinity.Models.Task>
+@{
+    ViewBag.Title = "ViewAllTasks";
+}
+
+<h2>Developer DashBoard</h2>
+
+<h4>Sort by Priority: @Html.ActionLink("High to Low", "Index", new { sortingOrder = "HighToLow" }, null)  | @Html.ActionLink("Low to High", "Index", new { sortingOrder = "LowToHigh" }, null)  </h4>
+
+
+@if (Model.Count != 0)
+{
+    <h4>Here are all your tasks.</h4>
+    <ul>
+        @foreach (var task in Model)
+        {
+            <li>
+                @task.Name -- @task.CompletedPercentage % -- @task.Time -- @Html.ActionLink("Update Task Percentage", "UpdateTaskPercentage", "Developer", new { id = task.Id }, null) -- @if (task.IsCompleted)
+                {@Html.ActionLink("Mark as not completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = false }, null)}
+            else
+            { @Html.ActionLink("Mark as completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = true }, null)} @if (task.IsCompleted)
+                {@Html.ActionLink("Add Comment", "AddComment", "Developer", new { id = task.Id }, null)}
+        </li>
+    }
+    </ul>
+}
