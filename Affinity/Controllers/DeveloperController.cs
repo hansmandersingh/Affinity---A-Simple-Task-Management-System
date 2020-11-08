@@ -43,7 +43,9 @@ namespace Affinity.Controllers
 
                     if (!task.Notifications.Contains(notification))
                     {
-
+                        task.Notifications.Add(notification);
+                        TaskHelper.updateTask(task);
+                        db.SaveChanges();
                     }
                 }
             }
