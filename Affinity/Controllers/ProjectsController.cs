@@ -17,7 +17,7 @@ namespace Affinity.Controllers
         // GET: Projects
         public ActionResult Index()
         {
-            return View(db.Tasks.OrderByDescending(t =>t.Priority).Include("Project").Include("User").ToList());
+            return View(db.Projects.ToList());
         }
 
         // GET: Projects/Details/5
