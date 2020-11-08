@@ -17,7 +17,7 @@ namespace Affinity.Controllers
         // GET: Projects
         public ActionResult Index()
         {
-            return View(db.Projects.ToList());
+            return View(db.Tasks.OrderByDescending(t => t.Priority).Include("project").Include("User").ToList());
         }
 
         // GET: Projects/Details/5
@@ -114,7 +114,7 @@ namespace Affinity.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
