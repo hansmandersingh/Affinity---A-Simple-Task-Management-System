@@ -7,12 +7,12 @@ using System.Web;
 namespace Affinity.Models
 {
     
-    public class ProjectHelper
+    public static class ProjectHelper
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private static ApplicationDbContext db = new ApplicationDbContext();
 
 
-        public void CreateProject(string Name, string Description)
+        public static void CreateProject(string Name, string Description)
         {
             Project project = new Project() { Name = Name, Description = Description };
 
@@ -20,7 +20,7 @@ namespace Affinity.Models
             db.SaveChanges();
         }
 
-        public void UpdateProject(Project pro)
+        public static void UpdateProject(Project pro)
         {
             Project project = db.Projects.Find(pro.Id);
 
@@ -34,7 +34,7 @@ namespace Affinity.Models
             }
         }
 
-        public void DeleteProject(int id)
+        public static void DeleteProject(int id)
         {
             Project project = db.Projects.Find(id);
 
@@ -44,12 +44,12 @@ namespace Affinity.Models
                 db.SaveChanges();
             }
         }
-        public List<Project> GetAllProjects()
+        public static List<Project> GetAllProjects()
         {
             return db.Projects.ToList();
         }
 
-        public Project GetAProject(int id)
+        public static Project GetAProject(int id)
         {
             return db.Projects.Find(id);
         }
