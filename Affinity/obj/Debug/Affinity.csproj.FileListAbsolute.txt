@@ -448,6 +448,7 @@ C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.AddTaskClass.resources
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.RelationshipChangesBWUserANDTask.resources
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.ClassChanges.resources
+C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.SmallFixMadeToApplicationUser.resources
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.NewFieldAddedInTaskClass.resources
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.addedNotesClass.resources
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.NameChangeForComment.resources
