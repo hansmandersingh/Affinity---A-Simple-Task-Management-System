@@ -38,7 +38,7 @@ namespace Affinity.Controllers
                     { 
                         TaskId = task.Id, 
                         ProjectId = task.ProjectId, 
-                        NotificationDetails = "Heads up you are about to be at your project deadline." 
+                        NotificationDetails = "Heads up you are about to be at your task deadline." 
                     };
 
                     if (!task.Notifications.Contains(notification))

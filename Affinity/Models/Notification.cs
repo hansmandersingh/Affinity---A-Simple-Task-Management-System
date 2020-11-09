@@ -13,5 +13,6 @@ namespace Affinity.Models
         public virtual Project Project { get; set; }
         public int? TaskId { get; set; }
         public Task Task { get; set; }
+        public bool IsWatched { get; set; }
     }
 }
