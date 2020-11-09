@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace Affinity.Controllers
 {
@@ -101,9 +102,10 @@ namespace Affinity.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult MarkNotificationAsWatched()
+        public ActionResult MarkNotificationAsWatched(int notificationId)
         {
-
+            
+            return RedirectToAction("Details", "Notifications", new { id = notificationId });
         }
     }
 }
