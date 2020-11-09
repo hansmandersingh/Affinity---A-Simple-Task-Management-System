@@ -104,7 +104,6 @@ namespace Affinity.Controllers
 
         public ActionResult MarkNotificationAsWatched(int notificationId)
         {
-            
             return RedirectToAction("Details", "Notifications", new { id = notificationId });
         }
     }
