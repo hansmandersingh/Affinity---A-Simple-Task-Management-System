@@ -34,14 +34,16 @@ namespace Affinity.Controllers
             {
                 if ((DateTime.Now - task.DeadLine).Days <= 1)
                 {
-                    Notification notification = new Notification() 
-                    { 
-                        TaskId = task.Id, 
+                    Notification notification = new Notification()
+                    {
+                        TaskId = task.Id,
+                        Task = task,
                         ProjectId = task.ProjectId, 
+                        Project = task.Project,
                         NotificationDetails = "Heads up you are about to be at your task deadline." 
                     };
 
-                    if (!task.Notifications.Contains(notification))
+                    if (!task.Notifications.Any(s => s.TaskId == notification.TaskId && s.ProjectId == notification.ProjectId))
                     {
                         task.Notifications.Add(notification);
                         TaskHelper.updateTask(task);

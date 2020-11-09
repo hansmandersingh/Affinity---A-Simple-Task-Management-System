@@ -28,6 +28,13 @@ namespace Affinity.Models
                 task.UserId = t.UserId;
                 task.Project = t.Project;
                 task.ProjectId = t.ProjectId;
+                task.DeadLine = t.DeadLine;
+                task.IsCompleted = t.IsCompleted;
+                task.CompletedPercentage = t.CompletedPercentage;
+                task.Notes = t.Notes;
+                task.Notifications = t.Notifications;
+                task.Priority = t.Priority;
+                task.Time = t.Time;
                 db.Entry(task).State = EntityState.Modified;
                 db.SaveChanges();
             }
