@@ -100,5 +100,10 @@ namespace Affinity.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult MarkNotificationAsWatched()
+        {
+
+        }
     }
 }
