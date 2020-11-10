@@ -40,7 +40,7 @@
                 {@Html.ActionLink("Mark as not completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = false }, null)}
             else
             { @Html.ActionLink("Mark as completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = true }, null)} @if (task.IsCompleted)
-                {@Html.ActionLink("Add Comment", "AddComment", "Developer", new { id = task.Id }, null)}
+                {@Html.ActionLink("Add Comment", "AddComment", "Developer", new { id = task.Id }, null)} -- @Html.ActionLink("Add A Note", "AddANote", "Developer", new { taskId = task.Id }, null)
         </li>
     }
     </ul>

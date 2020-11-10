@@ -111,15 +111,25 @@ namespace Affinity.Controllers
             return RedirectToAction("Details", "Notifications", new { id = notificationId });
         }
 
-        public ActionResult AddANote()
+        public ActionResult AddANote(int taskId)
         {
+            ViewBag.taskId = taskId;
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddANote(string Note)
+        public ActionResult AddANote(int taskId, string Note)
         {
-            return View();
-        }
+            Comment comment = new Comment() { Note = Note, TaskId = taskId, UserId = this.User.Identity.GetUserId(), IsBugNote = true };
+            var task = TaskHelper.getATask(taskId);
+            var project = ProjectHelper.GetAProject(task.ProjectId);
+
+            task.Notes.Add(comment);
+            TaskHelper.updateTask(task);
+            db.SaveChanges();
+            ViewBag.taskId = taskId;
+            return RedirectToAction("Index", "Developer");
+         }
+
     }
 }
