@@ -42,7 +42,9 @@ namespace Affinity.Controllers
                         {
                             TaskId = task.Id,
                             Task = task,
-                            NotificationDetails = "Heads up you are about to be at your task deadline."
+                            NotificationDetails = "Heads up you are about to be at your task deadline.",
+                            ProjectId = task.ProjectId,
+                            IsBugNotif = false
                         };
 
                         task.Notifications.Add(notification);
@@ -123,9 +125,12 @@ namespace Affinity.Controllers
             Comment comment = new Comment() { Note = Note, TaskId = taskId, UserId = this.User.Identity.GetUserId(), IsBugNote = true };
             var task = TaskHelper.getATask(taskId);
             var project = ProjectHelper.GetAProject(task.ProjectId);
+            Notification notification = new Notification() { NotificationDetails = Note, ProjectId = project.Id, TaskId = taskId, IsWatched = false, IsBugNotif = true };
 
             task.Notes.Add(comment);
             TaskHelper.updateTask(task);
+            project.Notifications.Add(notification);
+            ProjectHelper.UpdateProject(project);
             db.SaveChanges();
             ViewBag.taskId = taskId;
             return RedirectToAction("Index", "Developer");

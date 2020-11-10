@@ -29,6 +29,7 @@ namespace Affinity.Models
                 project.Name = pro.Name;
                 project.Description = pro.Description;
                 project.Tasks = pro.Tasks;
+                project.Notifications = pro.Notifications;
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
             }

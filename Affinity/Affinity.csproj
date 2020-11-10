@@ -216,6 +216,10 @@
     <Compile Include="Migrations\202011102013388_AddedCommentCheck.Designer.cs">
       <DependentUpon>202011102013388_AddedCommentCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011102055440_NewColumnInNotificationClass.cs" />
+    <Compile Include="Migrations\202011102055440_NewColumnInNotificationClass.Designer.cs">
+      <DependentUpon>202011102055440_NewColumnInNotificationClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\ProjectHelper.cs" />
@@ -388,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011102013388_AddedCommentCheck.resx">
       <DependentUpon>202011102013388_AddedCommentCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011102055440_NewColumnInNotificationClass.resx">
+      <DependentUpon>202011102055440_NewColumnInNotificationClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
