@@ -104,7 +104,6 @@ namespace Affinity.Controllers
         public ActionResult MarkNotificationAsWatched(int notificationId, int taskId)
         {
             var task = TaskHelper.getATask(taskId);
-            //var notification = db.Notifications.FirstOrDefault(n => n.Id == notificationId);
 
             task.Notifications.FirstOrDefault(n => n.Id == notificationId).IsWatched = true;
             TaskHelper.updateTask(task);
