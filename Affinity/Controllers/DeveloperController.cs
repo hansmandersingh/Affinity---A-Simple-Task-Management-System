@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,17 +36,15 @@ namespace Affinity.Controllers
             {
                 if ((DateTime.Now - task.DeadLine).Days <= 1)
                 {
-                    Notification notification = new Notification()
+                    if (!task.Notifications.Any(s => s.TaskId == task.Id))
                     {
-                        TaskId = task.Id,
-                        Task = task,
-                        ProjectId = task.ProjectId, 
-                        Project = task.Project,
-                        NotificationDetails = "Heads up you are about to be at your task deadline." 
-                    };
+                        Notification notification = new Notification()
+                        {
+                            TaskId = task.Id,
+                            Task = task,
+                            NotificationDetails = "Heads up you are about to be at your task deadline."
+                        };
 
-                    if (!task.Notifications.Any(s => s.TaskId == notification.TaskId && s.ProjectId == notification.ProjectId))
-                    {
                         task.Notifications.Add(notification);
                         TaskHelper.updateTask(task);
                         db.SaveChanges();
@@ -102,8 +101,14 @@ namespace Affinity.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult MarkNotificationAsWatched(int notificationId)
+        public ActionResult MarkNotificationAsWatched(int notificationId, int taskId)
         {
+            var task = TaskHelper.getATask(taskId);
+            //var notification = db.Notifications.FirstOrDefault(n => n.Id == notificationId);
+
+            task.Notifications.FirstOrDefault(n => n.Id == notificationId).IsWatched = true;
+            TaskHelper.updateTask(task);
+            db.SaveChanges();
             return RedirectToAction("Details", "Notifications", new { id = notificationId });
         }
     }

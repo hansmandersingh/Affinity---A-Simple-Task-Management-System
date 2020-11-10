@@ -58,7 +58,7 @@ namespace Affinity.Models
 
         public static List<Task> GetAllTasksByADeveloper(string userId)
         {
-            var allTasks = db.Tasks.Where(i => i.User.Id == userId).ToList();
+            var allTasks = db.Tasks.Where(i => i.User.Id == userId).Include(n => n.Notifications).ToList();
 
             return allTasks;
         }

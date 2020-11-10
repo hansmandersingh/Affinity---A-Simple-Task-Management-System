@@ -21,7 +21,7 @@
                 if (notif.IsWatched == false)
                 {
                     <li style="list-style:none">
-                        @Html.ActionLink(notif.NotificationDetails + "("+ task.Name + ")", "MarkNotificationAsWatched", new { notificationId = notif.Id })
+                        @Html.ActionLink(notif.NotificationDetails + "("+ task.Name + ")", "MarkNotificationAsWatched", new { notificationId = notif.Id , taskId = task.Id })
                     </li>
                 }
             }
