@@ -93,7 +93,7 @@ namespace Affinity.Controllers
         public ActionResult AddComment(int id, string commentText)
         {
             var task = TaskHelper.getATask(id);
-            Comment comment = new Comment() { Note = commentText, TaskId = task.Id, UserId = this.User.Identity.GetUserId() };
+            Comment comment = new Comment() { Note = commentText, TaskId = task.Id, UserId = this.User.Identity.GetUserId() , IsBugNote = false };
             db.Comments.Add(comment);
             db.SaveChanges();
             ViewBag.TaskId = id;
@@ -109,6 +109,17 @@ namespace Affinity.Controllers
             TaskHelper.updateTask(task);
             db.SaveChanges();
             return RedirectToAction("Details", "Notifications", new { id = notificationId });
+        }
+
+        public ActionResult AddANote()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddANote(string Note)
+        {
+            return View();
         }
     }
 }

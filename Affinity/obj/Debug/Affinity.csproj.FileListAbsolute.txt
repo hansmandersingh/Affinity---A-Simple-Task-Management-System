@@ -464,3 +464,4 @@ C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddDeadlin
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddNotificationClassAndRelations.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NotificationClassNewColumnUpdate.resources
 >>>>>>> DeadlineFeature
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddedCommentCheck.resources
