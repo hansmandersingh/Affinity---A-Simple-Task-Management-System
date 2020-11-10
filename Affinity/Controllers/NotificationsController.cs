@@ -10,111 +10,120 @@ using Affinity.Models;
 
 namespace Affinity.Controllers
 {
-    public class ProjectsController : Controller
+    public class NotificationsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Projects
+        // GET: Notifications
         public ActionResult Index()
         {
-            return View(db.Tasks.OrderByDescending(t => t.Priority).Include("project").Include("User").ToList());
+            var notifications = db.Notifications.Include(n => n.Project).Include(n => n.Task);
+            return View(notifications.ToList());
         }
 
-        // GET: Projects/Details/5
+        // GET: Notifications/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Notification notification = db.Notifications.Find(id);
+            if (notification == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+            return View(notification);
         }
 
-        // GET: Projects/Create
+        // GET: Notifications/Create
         public ActionResult Create()
         {
+            ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name");
+            ViewBag.TaskId = new SelectList(db.Tasks, "Id", "Name");
             return View();
         }
 
-        // POST: Projects/Create
+        // POST: Notifications/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Time,IsCompleted, Priority,DeadLine")] Project project)
+        public ActionResult Create([Bind(Include = "Id,NotificationDetails,ProjectId,TaskId,IsWatched")] Notification notification)
         {
             if (ModelState.IsValid)
             {
-                db.Projects.Add(project);
+                db.Notifications.Add(notification);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(project);
+            ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", notification.ProjectId);
+            ViewBag.TaskId = new SelectList(db.Tasks, "Id", "Name", notification.TaskId);
+            return View(notification);
         }
 
-        // GET: Projects/Edit/5
+        // GET: Notifications/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Notification notification = db.Notifications.Find(id);
+            if (notification == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+            ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", notification.ProjectId);
+            ViewBag.TaskId = new SelectList(db.Tasks, "Id", "Name", notification.TaskId);
+            return View(notification);
         }
 
-        // POST: Projects/Edit/5
+        // POST: Notifications/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Time,IsCompleted,Priority,DeadLine")] Project project)
+        public ActionResult Edit([Bind(Include = "Id,NotificationDetails,ProjectId,TaskId,IsWatched")] Notification notification)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(project).State = EntityState.Modified;
+                db.Entry(notification).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(project);
+            ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", notification.ProjectId);
+            ViewBag.TaskId = new SelectList(db.Tasks, "Id", "Name", notification.TaskId);
+            return View(notification);
         }
 
-        // GET: Projects/Delete/5
+        // GET: Notifications/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
+            Notification notification = db.Notifications.Find(id);
+            if (notification == null)
             {
                 return HttpNotFound();
             }
-            return View(project);
+            return View(notification);
         }
 
-        // POST: Projects/Delete/5
+        // POST: Notifications/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Project project = db.Projects.Find(id);
-            db.Projects.Remove(project);
+            Notification notification = db.Notifications.Find(id);
+            db.Notifications.Remove(notification);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

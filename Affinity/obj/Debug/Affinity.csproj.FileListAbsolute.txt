@@ -340,6 +340,7 @@ C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.addedNotes
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NameChangeForComment.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.SmallFixMadeToApplicationUser.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddedPriorityToProjectAndTask.resources
+<<<<<<< HEAD
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\bin\Affinity.dll.config
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\bin\Affinity.dll
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\bin\Affinity.pdb
@@ -458,3 +459,8 @@ C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.csproj.CopyComplete
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.dll
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.pdb
+=======
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddDeadlineFeature.resources
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddNotificationClassAndRelations.resources
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NotificationClassNewColumnUpdate.resources
+>>>>>>> DeadlineFeature

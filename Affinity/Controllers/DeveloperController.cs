@@ -2,9 +2,11 @@
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace Affinity.Controllers
 {
@@ -28,6 +30,26 @@ namespace Affinity.Controllers
                 default:
                     allTasks = TaskHelper.GetAllTasksByADeveloper(this.User.Identity.GetUserId());
                     break;
+            }
+
+            foreach(var task in allTasks)
+            {
+                if ((DateTime.Now - task.DeadLine).Days <= 1)
+                {
+                    if (!task.Notifications.Any(s => s.TaskId == task.Id))
+                    {
+                        Notification notification = new Notification()
+                        {
+                            TaskId = task.Id,
+                            Task = task,
+                            NotificationDetails = "Heads up you are about to be at your task deadline."
+                        };
+
+                        task.Notifications.Add(notification);
+                        TaskHelper.updateTask(task);
+                        db.SaveChanges();
+                    }
+                }
             }
             
             return View(allTasks);
@@ -77,6 +99,16 @@ namespace Affinity.Controllers
             ViewBag.TaskId = id;
 
             return RedirectToAction("Index");
+        }
+
+        public ActionResult MarkNotificationAsWatched(int notificationId, int taskId)
+        {
+            var task = TaskHelper.getATask(taskId);
+
+            task.Notifications.FirstOrDefault(n => n.Id == notificationId).IsWatched = true;
+            TaskHelper.updateTask(task);
+            db.SaveChanges();
+            return RedirectToAction("Details", "Notifications", new { id = notificationId });
         }
     }
 }
