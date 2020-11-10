@@ -1,12 +1,14 @@
 ﻿@model IEnumerable<Affinity.Models.Task>
 
 @{
-    ViewBag.Title = "Project Manager Dashborad";
+    ViewBag.Title = "UnfinishedTask";
 }
 
-<h2>Project Manager Dashborad</h2>
+<h2>UnfinishedTask</h2>
 
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -62,7 +64,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Priority)
         </td>
-      
+        
     </tr>
 }
 
