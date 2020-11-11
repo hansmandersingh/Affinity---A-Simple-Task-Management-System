@@ -17,6 +17,16 @@ namespace Affinity.Controllers
         {
             ICollection<Project> allProjects;
             allProjects = ProjectHelper.GetAllProjects();
+
+            foreach(var project in allProjects)
+            {
+                if ((DateTime.Now - project.DeadLine).Days == 1 && project.Tasks.Any(p => p.IsCompleted == false))
+                {
+                    Notification notification = new Notification() { ProjectId = project.Id, IsWatched = false, NotificationDetails = "Project is overdue with unfinished tasks.", IsBugNotif = false };
+
+                    
+                }
+            }
             return View(allProjects);
         }
 
