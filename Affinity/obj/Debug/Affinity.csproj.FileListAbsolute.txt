@@ -341,6 +341,7 @@ C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NameChange
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.SmallFixMadeToApplicationUser.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddedPriorityToProjectAndTask.resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\bin\Affinity.dll.config
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\bin\Affinity.dll
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\bin\Affinity.pdb
@@ -464,3 +465,9 @@ C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddDeadlin
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddNotificationClassAndRelations.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NotificationClassNewColumnUpdate.resources
 >>>>>>> DeadlineFeature
+=======
+C:\Users\NAV\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.NewFieldAddedInTaskClass.resources
+C:\Users\NAV\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.addedNotesClass.resources
+C:\Users\NAV\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.NameChangeForComment.resources
+C:\Users\NAV\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.AddedPriorityToProjectAndTask.resources
+>>>>>>> ProjectManager
