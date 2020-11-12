@@ -36,7 +36,7 @@ namespace Affinity.Controllers
             {
                 if ((DateTime.Now - task.DeadLine).Days <= 1)
                 {
-                    if (!task.Notifications.Any(s => s.TaskId == task.Id))
+                    if (!task.Notifications.Any(s => s.TaskId == task.Id && s.IsTaskNotif == true && s.IsDeadlineNotif == true)) //fix this
                     {
                         Notification notification = new Notification()
                         {
@@ -45,6 +45,7 @@ namespace Affinity.Controllers
                             NotificationDetails = "Heads up you are about to be at your task deadline.",
                             ProjectId = task.ProjectId,
                             IsDeadlineNotif = true,
+                            IsTaskNotif = true
                         };
 
                         task.Notifications.Add(notification);
@@ -77,7 +78,7 @@ namespace Affinity.Controllers
         public ActionResult MarkTaskAsCompleted(int taskId , bool IsComp)
         {
             var task = TaskHelper.getATask(taskId);
-            Notification notification = new Notification() { IsCompletedNotif = true, TaskId = taskId, ProjectId = task.ProjectId , NotificationDetails = "A task has been completed from a project." };
+            Notification notification = new Notification() { IsCompletedNotif = true, TaskId = taskId, ProjectId = task.ProjectId , NotificationDetails = "A task has been completed from a project." , IsTaskNotif = true };
             var project = ProjectHelper.GetAProject(task.ProjectId);
 
             

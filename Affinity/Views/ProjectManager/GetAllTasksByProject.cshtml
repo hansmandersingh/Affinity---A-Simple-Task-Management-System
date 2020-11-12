@@ -5,7 +5,7 @@
 
     <h2>Tasks</h2>
     <p>
-        @Html.ActionLink("Hide completed Tasks", "HideCompletedTask") | @Html.ActionLink("Sort by Completion Percentage", "GetAllTasksByProject", new {proId = (int)ViewBag.ProjectId, sort = "SortAccordingCompletionPercentage" }, null)
+        @Html.ActionLink("Hide completed Tasks", "HideCompletedTask");
     </p>
     <table class="table">
         <tr>
@@ -60,7 +60,7 @@
                 <td>
                     @Html.ActionLink("Edit", "Edit", "Tasks", new { id = item.Id }, null) |
                     @Html.ActionLink("Details", "Details", "Tasks", new { id = item.Id }, null) |
-                    @Html.ActionLink("Delete", "Delete", "Tasks", new { id = item.Id }, null)
+                    @Html.ActionLink("Delete", "Delete","Tasks", new { id = item.Id }, null)
                 </td>
             </tr>
         }
