@@ -44,7 +44,7 @@ namespace Affinity.Controllers
                             Task = task,
                             NotificationDetails = "Heads up you are about to be at your task deadline.",
                             ProjectId = task.ProjectId,
-                            IsBugNotif = false
+                            IsDeadlineNotif = true,
                         };
 
                         task.Notifications.Add(notification);
@@ -77,8 +77,14 @@ namespace Affinity.Controllers
         public ActionResult MarkTaskAsCompleted(int taskId , bool IsComp)
         {
             var task = TaskHelper.getATask(taskId);
+            Notification notification = new Notification() { IsCompletedNotif = true, TaskId = taskId, ProjectId = task.ProjectId , NotificationDetails = "A task has been completed from a project." };
+            var project = ProjectHelper.GetAProject(task.ProjectId);
+
+            
             task.IsCompleted = IsComp;
             TaskHelper.updateTask(task);
+            project.Notifications.Add(notification);
+            ProjectHelper.UpdateProject(project);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

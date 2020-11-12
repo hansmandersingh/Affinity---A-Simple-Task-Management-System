@@ -18,7 +18,7 @@
         {
             foreach (var notif in task.Notifications)
             {
-                if (notif.IsWatched == false && notif.IsBugNotif == false)
+                if (notif.TaskId != null && notif.IsDeadlineNotif == true && notif.IsWatched == false)
                 {
                     <li style="list-style:none">
                         @Html.ActionLink(notif.NotificationDetails + "("+ task.Name + ")", "MarkNotificationAsWatched", new { notificationId = notif.Id , taskId = task.Id })

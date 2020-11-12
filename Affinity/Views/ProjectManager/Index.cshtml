@@ -6,6 +6,9 @@
 
 <h2>All Projects</h2>
 
+<h4>You have @ViewBag.NumberOfNotif notifications</h4>
+<h4>@Html.ActionLink("View Notifications", "NotificationsPage", "ProjectManager")</h4>
+
 <table class="table">
     <tr>
         <th>
@@ -45,7 +48,8 @@
                 @Html.DisplayFor(modelItem => item.Priority)
             </td>
             <td>
-                @Html.ActionLink("Show All Tasks", "GetAllTasksByProject", new {proId = item.Id}, null)
+                @Html.ActionLink("Show All Tasks", "GetAllTasksByProject", new {proId = item.Id}, null)  | 
+                @Html.ActionLink("Mark Project as Completed", "MarkProjectAsCompleted", new { projectId = item.Id }, null)
             </td>
         </tr>
     }
