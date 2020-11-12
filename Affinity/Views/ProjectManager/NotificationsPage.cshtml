@@ -1,0 +1,16 @@
+﻿@model List<Affinity.Models.Notification>
+@{
+    ViewBag.Title = "NotificationsPage";
+}
+
+<h2>Notifications Page</h2>
+
+<ul>
+    @foreach (var notif in Model)
+    {
+        <li style="list-style:none">
+            @notif.NotificationDetails
+        </li>
+    }
+</ul>
+
