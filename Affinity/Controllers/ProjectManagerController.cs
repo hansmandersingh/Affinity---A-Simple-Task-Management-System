@@ -38,13 +38,22 @@ namespace Affinity.Controllers
             return View(allProjects);
         }
 
-        public ActionResult GetAllTasksByProject(int proId)
+        public ActionResult GetAllTasksByProject(int proId, string sort)
         {
             ICollection<Task> allTasks;
-            allTasks = TaskHelper.getAllTasks();
-            var allTasksinDesc = allTasks.Where(t => t.ProjectId == proId).OrderByDescending(i => i.CompletedPercentage).ToList();
-            return View(allTasksinDesc);
+            ViewBag.ProjectId = proId;
+            switch (sort)
+            {
+                case "SortAccordingCompletionPercentage":
+                    allTasks = TaskHelper.getAllTasks().Where(t => t.ProjectId == proId).OrderByDescending(i => i.CompletedPercentage).ToList();
+                    break;
+                default:
+                    allTasks = TaskHelper.getAllTasks().Where(t => t.ProjectId == proId).OrderByDescending(i => i.Time).ToList();
+                    break;
+            }
+            return View(allTasks);
         }
+        
 
         public ActionResult HideCompletedTask()
         {
