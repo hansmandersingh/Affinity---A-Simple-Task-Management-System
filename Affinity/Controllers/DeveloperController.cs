@@ -44,7 +44,7 @@ namespace Affinity.Controllers
                             Task = task,
                             NotificationDetails = "Heads up you are about to be at your task deadline.",
                             ProjectId = task.ProjectId,
-                            IsBugNotif = false
+                            IsDeadlineNotif = true,
                         };
 
                         task.Notifications.Add(notification);

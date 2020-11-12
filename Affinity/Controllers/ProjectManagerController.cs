@@ -32,6 +32,8 @@ namespace Affinity.Controllers
                     }
                 }
             }
+
+            ViewBag.NumberOfNotif = db.Notifications.Count(n => n.ProjectId != null && !n.IsDeadlineNotif != true);
             return View(allProjects);
         }
 
