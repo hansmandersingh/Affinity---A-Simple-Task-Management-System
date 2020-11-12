@@ -61,6 +61,19 @@ namespace Affinity.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult RemoveUserFromRole()
+        {
+            ViewBag.UsersList = db.Users.ToList();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult RemoveUserFromRole(string userId, string roleName)
+        {
+            UserManager.DeleteUserFromRole(userId, roleName);
+            db.SaveChanges();
+            ViewBag.UserList = db.Users.ToList();
+            return RedirectToAction("Index");
+        }
         public ActionResult DeleteRole()
         {
             return View();
