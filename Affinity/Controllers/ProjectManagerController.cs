@@ -1,6 +1,7 @@
 ﻿using Affinity.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.DynamicData;
@@ -63,9 +64,14 @@ namespace Affinity.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult MarkNotificationAsWatched()
+        public ActionResult MarkNotificationAsWatched(int notifId)
         {
-            return View();
+            var notification = db.Notifications.FirstOrDefault(i => i.Id == notifId);
+
+            notification.IsWatched = true;
+            db.Entry(notification).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("NotificationsPage");
         }
 
         public ActionResult NotificationsPage()

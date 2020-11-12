@@ -8,9 +8,12 @@
 <ul>
     @foreach (var notif in Model)
     {
-        <li style="list-style:none">
-            @notif.NotificationDetails
-        </li>
+        if (notif.IsWatched == false)
+        {
+            <li style="list-style:none">
+                @Html.ActionLink(notif.NotificationDetails, "Details", "Notifications", new { id = notif.Id }, null) (@Html.ActionLink("Mark as read", "MarkNotificationAsWatched", "ProjectManager", new { notifId = notif.Id }, null))
+            </li>
+        }
     }
 </ul>
 
