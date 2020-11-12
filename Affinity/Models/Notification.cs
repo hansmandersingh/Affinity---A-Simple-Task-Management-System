@@ -17,5 +17,6 @@ namespace Affinity.Models
         public bool IsBugNotif { get; set; }
         public bool IsDeadlineNotif { get; set; }
         public bool IsCompletedNotif { get; set; }
+        public bool IsTaskNotif { get; set; }
     }
 }
