@@ -221,6 +221,10 @@
     <Compile Include="Migrations\202011111753208_DeadlineCheckInNotif.Designer.cs">
       <DependentUpon>202011111753208_DeadlineCheckInNotif.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011121458150_NotificationClassCompetionMarking.cs" />
+    <Compile Include="Migrations\202011121458150_NotificationClassCompetionMarking.Designer.cs">
+      <DependentUpon>202011121458150_NotificationClassCompetionMarking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\ProjectHelper.cs" />
@@ -400,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011111753208_DeadlineCheckInNotif.resx">
       <DependentUpon>202011111753208_DeadlineCheckInNotif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011121458150_NotificationClassCompetionMarking.resx">
+      <DependentUpon>202011121458150_NotificationClassCompetionMarking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

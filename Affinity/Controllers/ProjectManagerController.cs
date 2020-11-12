@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.DynamicData;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace Affinity.Controllers
 {
@@ -46,6 +47,23 @@ namespace Affinity.Controllers
         {
             var allTasksWithoutHidden = TaskHelper.getAllTasks();
             return View(allTasksWithoutHidden);
+        }
+        public ActionResult MarkProjectAsCompleted(int projectId)
+        {
+            var project = ProjectHelper.GetAProject(projectId);
+            Notification notification = new Notification() { IsCompletedNotif = true, ProjectId = projectId, NotificationDetails = "A Project has been completed." };
+
+            project.IsCompleted = true;
+            ProjectHelper.UpdateProject(project);
+            project.Notifications.Add(notification);
+            ProjectHelper.UpdateProject(project);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult MarkNotificationAsWatched()
+        {
+            return View();
         }
     }
 }
