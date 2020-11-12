@@ -229,6 +229,11 @@
     <Compile Include="Migrations\202011122127032_NotificationTaskFixup.Designer.cs">
       <DependentUpon>202011122127032_NotificationTaskFixup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011122155405_AddBudgetClass.cs" />
+    <Compile Include="Migrations\202011122155405_AddBudgetClass.Designer.cs">
+      <DependentUpon>202011122155405_AddBudgetClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\ProjectHelper.cs" />
@@ -417,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011122127032_NotificationTaskFixup.resx">
       <DependentUpon>202011122127032_NotificationTaskFixup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011122155405_AddBudgetClass.resx">
+      <DependentUpon>202011122155405_AddBudgetClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
