@@ -47,7 +47,7 @@ namespace Affinity.Models
         }
         public static List<Project> GetAllProjects()
         {
-            return db.Projects.Include(t => t.Tasks).ToList();
+            return db.Projects.Include(t => t.Tasks).Include(p => p.Notifications).ToList();
         }
 
         public static Project GetAProject(int id)

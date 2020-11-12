@@ -20,11 +20,15 @@ namespace Affinity.Controllers
 
             foreach(var project in allProjects)
             {
-                if ((DateTime.Now - project.DeadLine).Days == 1 && project.Tasks.Any(p => p.IsCompleted == false))
+                if ((DateTime.Now - project.DeadLine).Days >= 1 && project.Tasks.Any(p => p.IsCompleted == false))
                 {
-                    Notification notification = new Notification() { ProjectId = project.Id, IsWatched = false, NotificationDetails = "Project is overdue with unfinished tasks.", IsBugNotif = false };
-
-                    
+                    Notification notification = new Notification() { ProjectId = project.Id, IsWatched = false, NotificationDetails = "Project is overdue with unfinished tasks.", IsBugNotif = false , IsDeadlineNotif = true };
+                    if (!project.Notifications.Any(n => n.IsDeadlineNotif == true && n.ProjectId == project.Id))
+                    {
+                        project.Notifications.Add(notification);
+                        ProjectHelper.UpdateProject(project);
+                        db.SaveChanges();
+                    }
                 }
             }
             return View(allProjects);
