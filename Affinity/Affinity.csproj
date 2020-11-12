@@ -347,6 +347,7 @@
     <Content Include="Views\ProjectManager\Index.cshtml" />
     <Content Include="Views\ProjectManager\NotificationsPage.cshtml" />
     <Content Include="Views\Admin\RemoveUserFromRole.cshtml" />
+    <Content Include="Views\ProjectManager\AllUnfinishedTasksAfterDeadline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

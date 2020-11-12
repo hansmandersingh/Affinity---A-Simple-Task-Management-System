@@ -36,7 +36,7 @@ namespace Affinity.Controllers
             {
                 if ((DateTime.Now - task.DeadLine).Days <= 1)
                 {
-                    if (!task.Notifications.Any(s => s.TaskId == task.Id))
+                    if (!task.Notifications.Any(s => s.TaskId == task.Id)) //fix this
                     {
                         Notification notification = new Notification()
                         {

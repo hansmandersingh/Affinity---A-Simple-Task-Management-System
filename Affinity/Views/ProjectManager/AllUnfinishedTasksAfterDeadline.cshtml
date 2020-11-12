@@ -1,0 +1,15 @@
+﻿@model List<Affinity.Models.Task>
+@{
+    ViewBag.Title = "AllUnfinishedTasksAfterDeadline";
+}
+
+<h2>All Unfinished Tasks that passed Deadline</h2>
+
+<ul>
+    @foreach(var task in Model)
+    {
+        <li style="list-style:none">
+            @task.Name
+        </li>
+    }
+</ul>

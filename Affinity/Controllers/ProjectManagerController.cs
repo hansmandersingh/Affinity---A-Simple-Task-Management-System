@@ -79,5 +79,10 @@ namespace Affinity.Controllers
             var notifications = db.Notifications.Where(n => n.TaskId == null || n.ProjectId == null).ToList();
             return View(notifications);
         }
+        public ActionResult AllUnfinishedTasksAfterDeadline()
+        {
+            var tasks = db.Tasks.Where(t => t.IsCompleted == false && DateTime.Now > t.DeadLine).ToList();
+            return View(tasks);
+        }
     }
 }
