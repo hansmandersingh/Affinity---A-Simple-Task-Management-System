@@ -12,6 +12,7 @@ namespace Affinity.Models
         public int TaskId { get; set; }
         public Task Task { get; set; }
         public string UserId { get; set; }
+        public bool IsBugNote { get; set; }
         public ApplicationUser User { get; set; }
     }
 }

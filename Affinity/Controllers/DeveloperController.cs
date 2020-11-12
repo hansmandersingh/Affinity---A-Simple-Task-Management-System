@@ -42,7 +42,9 @@ namespace Affinity.Controllers
                         {
                             TaskId = task.Id,
                             Task = task,
-                            NotificationDetails = "Heads up you are about to be at your task deadline."
+                            NotificationDetails = "Heads up you are about to be at your task deadline.",
+                            ProjectId = task.ProjectId,
+                            IsDeadlineNotif = true,
                         };
 
                         task.Notifications.Add(notification);
@@ -75,8 +77,14 @@ namespace Affinity.Controllers
         public ActionResult MarkTaskAsCompleted(int taskId , bool IsComp)
         {
             var task = TaskHelper.getATask(taskId);
+            Notification notification = new Notification() { IsCompletedNotif = true, TaskId = taskId, ProjectId = task.ProjectId , NotificationDetails = "A task has been completed from a project." };
+            var project = ProjectHelper.GetAProject(task.ProjectId);
+
+            
             task.IsCompleted = IsComp;
             TaskHelper.updateTask(task);
+            project.Notifications.Add(notification);
+            ProjectHelper.UpdateProject(project);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -93,7 +101,7 @@ namespace Affinity.Controllers
         public ActionResult AddComment(int id, string commentText)
         {
             var task = TaskHelper.getATask(id);
-            Comment comment = new Comment() { Note = commentText, TaskId = task.Id, UserId = this.User.Identity.GetUserId() };
+            Comment comment = new Comment() { Note = commentText, TaskId = task.Id, UserId = this.User.Identity.GetUserId() , IsBugNote = false };
             db.Comments.Add(comment);
             db.SaveChanges();
             ViewBag.TaskId = id;
@@ -110,5 +118,29 @@ namespace Affinity.Controllers
             db.SaveChanges();
             return RedirectToAction("Details", "Notifications", new { id = notificationId });
         }
+
+        public ActionResult AddANote(int taskId)
+        {
+            ViewBag.taskId = taskId;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddANote(int taskId, string Note)
+        {
+            Comment comment = new Comment() { Note = Note, TaskId = taskId, UserId = this.User.Identity.GetUserId(), IsBugNote = true };
+            var task = TaskHelper.getATask(taskId);
+            var project = ProjectHelper.GetAProject(task.ProjectId);
+            Notification notification = new Notification() { NotificationDetails = Note, ProjectId = project.Id, TaskId = taskId, IsWatched = false, IsBugNotif = true };
+
+            task.Notes.Add(comment);
+            TaskHelper.updateTask(task);
+            project.Notifications.Add(notification);
+            ProjectHelper.UpdateProject(project);
+            db.SaveChanges();
+            ViewBag.taskId = taskId;
+            return RedirectToAction("Index", "Developer");
+         }
+
     }
 }

@@ -29,6 +29,7 @@ namespace Affinity.Models
                 project.Name = pro.Name;
                 project.Description = pro.Description;
                 project.Tasks = pro.Tasks;
+                project.Notifications = pro.Notifications;
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
             }
@@ -46,7 +47,7 @@ namespace Affinity.Models
         }
         public static List<Project> GetAllProjects()
         {
-            return db.Projects.ToList();
+            return db.Projects.Include(t => t.Tasks).Include(p => p.Notifications).ToList();
         }
 
         public static Project GetAProject(int id)

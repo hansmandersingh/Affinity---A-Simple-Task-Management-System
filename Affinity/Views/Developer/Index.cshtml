@@ -18,7 +18,7 @@
         {
             foreach (var notif in task.Notifications)
             {
-                if (notif.IsWatched == false)
+                if (notif.TaskId != null && notif.IsDeadlineNotif == true && notif.IsWatched == false)
                 {
                     <li style="list-style:none">
                         @Html.ActionLink(notif.NotificationDetails + "("+ task.Name + ")", "MarkNotificationAsWatched", new { notificationId = notif.Id , taskId = task.Id })
@@ -40,7 +40,7 @@
                 {@Html.ActionLink("Mark as not completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = false }, null)}
             else
             { @Html.ActionLink("Mark as completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = true }, null)} @if (task.IsCompleted)
-                {@Html.ActionLink("Add Comment", "AddComment", "Developer", new { id = task.Id }, null)}
+                {@Html.ActionLink("Add Comment", "AddComment", "Developer", new { id = task.Id }, null)} -- @Html.ActionLink("Add A Note", "AddANote", "Developer", new { taskId = task.Id }, null)
         </li>
     }
     </ul>

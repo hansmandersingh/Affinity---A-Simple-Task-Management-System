@@ -14,5 +14,8 @@ namespace Affinity.Models
         public int? TaskId { get; set; }
         public Task Task { get; set; }
         public bool IsWatched { get; set; }
+        public bool IsBugNotif { get; set; }
+        public bool IsDeadlineNotif { get; set; }
+        public bool IsCompletedNotif { get; set; }
     }
 }

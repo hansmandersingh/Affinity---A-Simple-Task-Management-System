@@ -174,15 +174,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NotificationsController.cs" />
+    <Compile Include="Controllers\ProjectManagerController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Migrations\202011041524559_ClassChanges.cs" />
     <Compile Include="Migrations\202011041524559_ClassChanges.Designer.cs">
       <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.cs" />
-    <Compile Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.Designer.cs">
-      <DependentUpon>202011060241358_SmallFixMadeToApplicationUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202011060510299_NewFieldAddedInTaskClass.cs" />
     <Compile Include="Migrations\202011060510299_NewFieldAddedInTaskClass.Designer.cs">
@@ -211,6 +208,22 @@
     <Compile Include="Migrations\202011082347453_NotificationClassNewColumnUpdate.cs" />
     <Compile Include="Migrations\202011082347453_NotificationClassNewColumnUpdate.Designer.cs">
       <DependentUpon>202011082347453_NotificationClassNewColumnUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011102013388_AddedCommentCheck.cs" />
+    <Compile Include="Migrations\202011102013388_AddedCommentCheck.Designer.cs">
+      <DependentUpon>202011102013388_AddedCommentCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011102055440_NewColumnInNotificationClass.cs" />
+    <Compile Include="Migrations\202011102055440_NewColumnInNotificationClass.Designer.cs">
+      <DependentUpon>202011102055440_NewColumnInNotificationClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011111753208_DeadlineCheckInNotif.cs" />
+    <Compile Include="Migrations\202011111753208_DeadlineCheckInNotif.Designer.cs">
+      <DependentUpon>202011111753208_DeadlineCheckInNotif.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011121458150_NotificationClassCompetionMarking.cs" />
+    <Compile Include="Migrations\202011121458150_NotificationClassCompetionMarking.Designer.cs">
+      <DependentUpon>202011121458150_NotificationClassCompetionMarking.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Notification.cs" />
@@ -327,6 +340,13 @@
     <Content Include="Views\Notifications\Details.cshtml" />
     <Content Include="Views\Notifications\Edit.cshtml" />
     <Content Include="Views\Notifications\Index.cshtml" />
+    <Content Include="Views\Developer\AddANote.cshtml" />
+    <Content Include="Views\Tasks\UnfinishedTask.cshtml" />
+    <Content Include="Views\ProjectManager\GetAllTasksByProject.cshtml" />
+    <Content Include="Views\ProjectManager\HideCompletedTask.cshtml" />
+    <Content Include="Views\ProjectManager\Index.cshtml" />
+    <Content Include="Views\ProjectManager\NotificationsPage.cshtml" />
+    <Content Include="Views\Admin\RemoveUserFromRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -357,9 +377,6 @@
     <EmbeddedResource Include="Migrations\202011041524559_ClassChanges.resx">
       <DependentUpon>202011041524559_ClassChanges.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011060241358_SmallFixMadeToApplicationUser.resx">
-      <DependentUpon>202011060241358_SmallFixMadeToApplicationUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011060510299_NewFieldAddedInTaskClass.resx">
       <DependentUpon>202011060510299_NewFieldAddedInTaskClass.cs</DependentUpon>
     </EmbeddedResource>
@@ -380,6 +397,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011082347453_NotificationClassNewColumnUpdate.resx">
       <DependentUpon>202011082347453_NotificationClassNewColumnUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011102013388_AddedCommentCheck.resx">
+      <DependentUpon>202011102013388_AddedCommentCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011102055440_NewColumnInNotificationClass.resx">
+      <DependentUpon>202011102055440_NewColumnInNotificationClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011111753208_DeadlineCheckInNotif.resx">
+      <DependentUpon>202011111753208_DeadlineCheckInNotif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011121458150_NotificationClassCompetionMarking.resx">
+      <DependentUpon>202011121458150_NotificationClassCompetionMarking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

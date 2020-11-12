@@ -7,13 +7,13 @@ namespace Affinity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class SmallFixMadeToApplicationUser : IMigrationMetadata
+    public sealed partial class AddedCommentCheck : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SmallFixMadeToApplicationUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedCommentCheck));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011060241358_SmallFixMadeToApplicationUser"; }
+            get { return "202011102013388_AddedCommentCheck"; }
         }
         
         string IMigrationMetadata.Source
