@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BudgetsController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -357,6 +358,11 @@
     <Content Include="Views\ProjectManager\NotificationsPage.cshtml" />
     <Content Include="Views\Admin\RemoveUserFromRole.cshtml" />
     <Content Include="Views\ProjectManager\AllUnfinishedTasksAfterDeadline.cshtml" />
+    <Content Include="Views\Budgets\Create.cshtml" />
+    <Content Include="Views\Budgets\Delete.cshtml" />
+    <Content Include="Views\Budgets\Details.cshtml" />
+    <Content Include="Views\Budgets\Edit.cshtml" />
+    <Content Include="Views\Budgets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
