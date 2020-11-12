@@ -225,6 +225,10 @@
     <Compile Include="Migrations\202011121458150_NotificationClassCompetionMarking.Designer.cs">
       <DependentUpon>202011121458150_NotificationClassCompetionMarking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011122127032_NotificationTaskFixup.cs" />
+    <Compile Include="Migrations\202011122127032_NotificationTaskFixup.Designer.cs">
+      <DependentUpon>202011122127032_NotificationTaskFixup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\ProjectHelper.cs" />
@@ -347,6 +351,7 @@
     <Content Include="Views\ProjectManager\Index.cshtml" />
     <Content Include="Views\ProjectManager\NotificationsPage.cshtml" />
     <Content Include="Views\Admin\RemoveUserFromRole.cshtml" />
+    <Content Include="Views\ProjectManager\AllUnfinishedTasksAfterDeadline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -409,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011121458150_NotificationClassCompetionMarking.resx">
       <DependentUpon>202011121458150_NotificationClassCompetionMarking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011122127032_NotificationTaskFixup.resx">
+      <DependentUpon>202011122127032_NotificationTaskFixup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
