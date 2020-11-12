@@ -7,6 +7,7 @@
 <h2>Project Manager Dashborad</h2>
 
 
+
 <table class="table">
     <tr>
         <th>
@@ -32,6 +33,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeadLine)
         </th>
         <th></th>
     </tr>
@@ -61,6 +65,14 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Priority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeadLine)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Projects", new { id=item.Project.Id }, null) |
+            @Html.ActionLink("Details", "Details", "Projects",  new { id=item.Project.Id } , null) |
+            @Html.ActionLink("Delete", "Delete" , "Projects", new { id=item.Project.Id }, null)
         </td>
       
     </tr>

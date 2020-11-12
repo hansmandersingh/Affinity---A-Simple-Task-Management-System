@@ -28,6 +28,13 @@ namespace Affinity.Models
                 task.UserId = t.UserId;
                 task.Project = t.Project;
                 task.ProjectId = t.ProjectId;
+                task.DeadLine = t.DeadLine;
+                task.IsCompleted = t.IsCompleted;
+                task.CompletedPercentage = t.CompletedPercentage;
+                task.Notes = t.Notes;
+                task.Notifications = t.Notifications;
+                task.Priority = t.Priority;
+                task.Time = t.Time;
                 db.Entry(task).State = EntityState.Modified;
                 db.SaveChanges();
             }
@@ -46,12 +53,12 @@ namespace Affinity.Models
 
         public static List<Task> getAllTasks()
         {
-            return db.Tasks.ToList();
+            return db.Tasks.Include(u => u.User).ToList();
         }
 
         public static List<Task> GetAllTasksByADeveloper(string userId)
         {
-            var allTasks = db.Tasks.Where(i => i.User.Id == userId).ToList();
+            var allTasks = db.Tasks.Where(i => i.User.Id == userId).Include(n => n.Notifications).ToList();
 
             return allTasks;
         }

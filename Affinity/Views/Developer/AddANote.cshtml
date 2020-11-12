@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "AddANote";
+}
+
+<h2>Report a bug or add a note </h2>
+
+<p>Note: Adding a note here will let your project manager know about that.</p>
+
+
+@using (Html.BeginForm())
+{
+    @Html.Hidden("taskId", (int)ViewBag.taskId)
+    @Html.TextBox("Note")
+
+    <input type="submit" value="add" name="add comment"/>
+}

@@ -5,12 +5,33 @@
 
 <h2>Developer DashBoard</h2>
 
-<h4>Sort by Priority: @Html.ActionLink("High to Low", "Index", new { sortingOrder = "HighToLow" }, null)  | @Html.ActionLink("Low to High", "Index", new { sortingOrder = "LowToHigh" }, null)  </h4>
 
 
 @if (Model.Count != 0)
 {
+<ul style="        display: inline-block;
+        border: 1px solid #dc6a6a;
+        background-color: #dc6a6a">
+    @foreach (var task in Model)
+    {
+        if (task.Notifications.Count != 0)
+        {
+            foreach (var notif in task.Notifications)
+            {
+                if (notif.TaskId != null && notif.IsDeadlineNotif == true && notif.IsWatched == false)
+                {
+                    <li style="list-style:none">
+                        @Html.ActionLink(notif.NotificationDetails + "("+ task.Name + ")", "MarkNotificationAsWatched", new { notificationId = notif.Id , taskId = task.Id })
+                    </li>
+                }
+            }
+        }
+    }
+</ul>
+
     <h4>Here are all your tasks.</h4>
+    <h5>Sort by Priority: @Html.ActionLink("High to Low", "Index", new { sortingOrder = "HighToLow" }, null)  | @Html.ActionLink("Low to High", "Index", new { sortingOrder = "LowToHigh" }, null)  </h5>
+
     <ul>
         @foreach (var task in Model)
         {
@@ -19,7 +40,7 @@
                 {@Html.ActionLink("Mark as not completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = false }, null)}
             else
             { @Html.ActionLink("Mark as completed!", "MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = true }, null)} @if (task.IsCompleted)
-                {@Html.ActionLink("Add Comment", "AddComment", "Developer", new { id = task.Id }, null)}
+                {@Html.ActionLink("Add Comment", "AddComment", "Developer", new { id = task.Id }, null)} -- @Html.ActionLink("Add A Note", "AddANote", "Developer", new { taskId = task.Id }, null)
         </li>
     }
     </ul>

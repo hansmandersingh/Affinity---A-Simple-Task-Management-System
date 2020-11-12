@@ -13,7 +13,7 @@ namespace Affinity.Models
     {
         public ICollection<Task> Tasks { get; set; }
         public ICollection<Comment> Notes { get; set; }
-
+       
         public ApplicationUser()
         {
             Tasks = new HashSet<Task>();
@@ -33,6 +33,7 @@ namespace Affinity.Models
         public DbSet<Project> Projects { get; set; }
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
