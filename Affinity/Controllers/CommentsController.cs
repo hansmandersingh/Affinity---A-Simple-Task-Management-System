@@ -15,6 +15,7 @@ namespace Affinity.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Comments
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             var comments = db.Comments.Include(c => c.Task).Include(c => c.User);
@@ -28,7 +29,7 @@ namespace Affinity.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
+            Comment comment = db.Comments.Include(t => t.Task).Include(u => u.User).FirstOrDefault(c => c.Id == id);
             if (comment == null)
             {
                 return HttpNotFound();
@@ -36,6 +37,7 @@ namespace Affinity.Controllers
             return View(comment);
         }
 
+        [Authorize(Roles = "admin")]
         // GET: Comments/Create
         public ActionResult Create()
         {
@@ -64,6 +66,7 @@ namespace Affinity.Controllers
         }
 
         // GET: Comments/Edit/5
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -99,6 +102,7 @@ namespace Affinity.Controllers
         }
 
         // GET: Comments/Delete/5
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

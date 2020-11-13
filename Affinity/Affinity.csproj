@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BudgetsController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -229,6 +230,11 @@
     <Compile Include="Migrations\202011122127032_NotificationTaskFixup.Designer.cs">
       <DependentUpon>202011122127032_NotificationTaskFixup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011122155405_AddBudgetClass.cs" />
+    <Compile Include="Migrations\202011122155405_AddBudgetClass.Designer.cs">
+      <DependentUpon>202011122155405_AddBudgetClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\ProjectHelper.cs" />
@@ -352,6 +358,11 @@
     <Content Include="Views\ProjectManager\NotificationsPage.cshtml" />
     <Content Include="Views\Admin\RemoveUserFromRole.cshtml" />
     <Content Include="Views\ProjectManager\AllUnfinishedTasksAfterDeadline.cshtml" />
+    <Content Include="Views\Budgets\Create.cshtml" />
+    <Content Include="Views\Budgets\Delete.cshtml" />
+    <Content Include="Views\Budgets\Details.cshtml" />
+    <Content Include="Views\Budgets\Edit.cshtml" />
+    <Content Include="Views\Budgets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -417,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011122127032_NotificationTaskFixup.resx">
       <DependentUpon>202011122127032_NotificationTaskFixup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011122155405_AddBudgetClass.resx">
+      <DependentUpon>202011122155405_AddBudgetClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

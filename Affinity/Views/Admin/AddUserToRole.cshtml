@@ -2,8 +2,9 @@
 @{
     ViewBag.Title = "AddUserToRole";
 }
-
-<h2>Add User To a Role</h2>
+<div class="jumbotron">
+    <h1>Add User To a Role</h1>
+</div>
 
 @using (Html.BeginForm())
 {
@@ -11,6 +12,6 @@
 
     <h4>Enter a role name to add: </h4> @Html.TextBox("roleName")
 
-    <input type="submit" name="Add User to Role" value="save"/>
+    <input type="submit" name="Add User to Role" value="Add User to Role"/>
 
 }

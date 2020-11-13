@@ -1,15 +1,17 @@
-﻿@model List<string>
+﻿@model List<Affinity.Models.ApplicationUser>
 @{
     ViewBag.Title = "AllUsers";
 }
 
-<h2>All Users are here.</h2>
+<div class="jumbotron">
+    <h1>All Users</h1>
+</div>
 
-<ul>
-    @foreach(var user in Model)
+<div class="row">
+    @foreach (var user in Model)
     {
-        <li style="list-style:none">
-            @user
-        </li>
+        <div class="col-md-4">
+            <p style="font-size:medium">@user.UserName</p>
+        </div>
     }
-</ul>
+</div>
