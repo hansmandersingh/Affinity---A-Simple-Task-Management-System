@@ -53,7 +53,7 @@ namespace Affinity.Models
 
         public static List<Task> getAllTasks()
         {
-            return db.Tasks.Include(u => u.User).ToList();
+            return db.Tasks.Include(u => u.User).Include(p => p.Project).ToList();
         }
 
         public static List<Task> GetAllTasksByADeveloper(string userId)
