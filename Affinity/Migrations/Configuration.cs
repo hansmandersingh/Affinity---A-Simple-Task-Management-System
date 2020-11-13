@@ -66,16 +66,16 @@ namespace Affinity.Migrations
                 var developer = userManager.FindByName("developer@developer.net");
                 if (developer == null)
                 {
-                    var newDeveloper = new ApplicationUser()
+                    developer = new ApplicationUser()
                     {
                         UserName = "developer@developer.net",
                         Email = "developer@developer.net",
                         PhoneNumber = "5551234567",
                     };
 
-                    userManager.Create(newDeveloper, "Password@1");
-                    userManager.SetLockoutEnabled(newDeveloper.Id, false);
-                    userManager.AddToRole(newDeveloper.Id, "developer");
+                    userManager.Create(developer, "Password@1");
+                    userManager.SetLockoutEnabled(developer.Id, false);
+                    userManager.AddToRole(developer.Id, "developer");
                 }
 
                 //Create Project Manager test user
@@ -92,6 +92,60 @@ namespace Affinity.Migrations
                     userManager.Create(newProjectManager, "Password@1");
                     userManager.SetLockoutEnabled(newProjectManager.Id, false);
                     userManager.AddToRole(newProjectManager.Id, "project manager");
+                }
+
+                var project = ProjectHelper.GetAProjectByName("Affinity");
+                if (project == null)
+                {
+                    project = new Project()
+                    {
+                        Name = "Affinity",
+                        Description = "Simple task mgmt",
+                        Time = DateTime.Now,
+                        IsCompleted = false,
+                        Priority = Priority.Low,
+                        DeadLine = DateTime.Now.AddDays(2)
+                    };
+
+                    ProjectHelper.CreateProject(project);
+                }
+
+                var task1 = TaskHelper.getATaskByName("Dev Feature");
+                if(task1 == null)
+                {
+                    task1 = new Task()
+                    {
+                        Name = "Dev Feature",
+                        ProjectId = project.Id,
+                        UserId = developer.Id,
+                        TaskContent = "Developer feature working",
+                        Time = DateTime.Now,
+                        CompletedPercentage = 0,
+                        IsCompleted = false,
+                        Priority = Priority.Low,
+                        DeadLine = DateTime.Now.AddDays(1)
+                    };
+
+                    TaskHelper.createTask(task1);
+                }
+
+                var task2 = TaskHelper.getATaskByName("Working up");
+                if(task2 == null)
+                {
+                    task2 = new Task()
+                    {
+                        Name = "Working up",
+                        ProjectId = project.Id,
+                        UserId = developer.Id,
+                        TaskContent = "Similar ideas",
+                        Time = DateTime.Now,
+                        CompletedPercentage = 0,
+                        IsCompleted = false,
+                        Priority = Priority.Low,
+                        DeadLine = DateTime.Now.AddDays(1)
+                    };
+
+                    TaskHelper.createTask(task2);
                 }
             }
             //  This method will be called after migrating to the latest version.

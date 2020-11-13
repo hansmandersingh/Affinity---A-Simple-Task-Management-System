@@ -17,6 +17,12 @@ namespace Affinity.Models
             db.SaveChanges();
         }
 
+        public static void createTask(Task task)
+        {
+            db.Tasks.Add(task);
+            db.SaveChanges();
+        }
+
         public static void updateTask(Task t)
         {
             Task task = db.Tasks.Find(t.Id);
@@ -66,6 +72,11 @@ namespace Affinity.Models
         public static Task getATask(int id)
         {
             return db.Tasks.Find(id);
+        }
+
+        public static Task getATaskByName(string Name)
+        {
+            return db.Tasks.FirstOrDefault(t => t.Name == Name);
         }
 
         public static void AssignUserATask(int taskId, string userId)

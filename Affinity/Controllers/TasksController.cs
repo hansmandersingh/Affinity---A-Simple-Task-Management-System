@@ -67,7 +67,6 @@ namespace Affinity.Controllers
         }
 
         // GET: Tasks/Edit/5
-        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -103,7 +102,6 @@ namespace Affinity.Controllers
         }
 
         // GET: Tasks/Delete/5
-        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -11,7 +11,11 @@ namespace Affinity.Models
     {
         private static ApplicationDbContext db = new ApplicationDbContext();
 
-
+        public static void CreateProject(Project project)
+        {
+            db.Projects.Add(project);
+            db.SaveChanges();
+        }
         public static void CreateProject(string Name, string Description)
         {
             Project project = new Project() { Name = Name, Description = Description };
@@ -53,6 +57,10 @@ namespace Affinity.Models
         public static Project GetAProject(int id)
         {
             return db.Projects.Find(id);
+        }
+        public static Project GetAProjectByName(string Name)
+        {
+            return db.Projects.FirstOrDefault(p => p.Name == Name);
         }
     }
 }

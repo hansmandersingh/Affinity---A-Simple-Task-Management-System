@@ -51,7 +51,7 @@
             @if (task.IsCompleted)
             {
                 <p><a class="btn btn-default" href=@Url.Action("MarkTaskAsCompleted", "Developer", new { taskId = task.Id, IsComp = false }, null)>Mark Task as UnCompleted &raquo;</a></p>
-                <p><a class="btn btn-default" href=@Url.Action("AddComment", "Developer", new { taskId = task.Id }, null)>Add Comment &raquo;</a></p>
+                <p><a class="btn btn-default" href=@Url.Action("AddComment", "Developer", new { id = task.Id }, null)>Add Comment &raquo;</a></p>
             }
             else
             {
