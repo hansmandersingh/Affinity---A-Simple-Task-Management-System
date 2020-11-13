@@ -119,7 +119,6 @@ C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.csproj.CoreCompileInp
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.csproj.CopyComplete
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.dll
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.pdb
-C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.csprojAssemblyReference.cache
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.DeadlineCheckInNotif.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NotificationClassCompetionMarking.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.NotificationTaskFixup.resources
@@ -249,3 +248,4 @@ C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.dll
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.pdb
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.AddBudgetClass.resources
+C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddBudgetClass.resources
