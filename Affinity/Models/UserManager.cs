@@ -16,9 +16,9 @@ namespace Affinity.Controllers
         private static UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
         private static RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
 
-        public static List<string> GetAllUsers()
+        public static List<ApplicationUser> GetAllUsers()
         {
-            return db.Users.Select(s => s.UserName).ToList();
+            return db.Users.Include(r => r.Roles).ToList();
         }
         public static bool AddUser(string Email, string pwdHash)// requires Email and pwd in hash format to work.
         {
