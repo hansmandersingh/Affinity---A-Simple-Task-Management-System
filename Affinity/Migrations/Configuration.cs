@@ -91,7 +91,7 @@ namespace Affinity.Migrations
 
                     userManager.Create(newProjectManager, "Password@1");
                     userManager.SetLockoutEnabled(newProjectManager.Id, false);
-                    userManager.AddToRole(newProjectManager.Id, "developer");
+                    userManager.AddToRole(newProjectManager.Id, "project manager");
                 }
             }
             //  This method will be called after migrating to the latest version.
