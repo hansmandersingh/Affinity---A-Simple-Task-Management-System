@@ -10,12 +10,13 @@ using Affinity.Models;
 
 namespace Affinity.Controllers
 {
+    [Authorize(Roles = "admin,project manager")]
     public class TasksController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Tasks
-        [Authorize(Roles = "admin")]
+        
         public ActionResult Index()
         {
             var tasks = db.Tasks.Include(t => t.Project).Include(t => t.User);
