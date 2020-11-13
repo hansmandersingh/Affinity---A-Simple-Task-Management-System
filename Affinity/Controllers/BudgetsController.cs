@@ -21,6 +21,13 @@ namespace Affinity.Controllers
             return View(budgets.ToList());
         }
 
+        public ActionResult ShowBudgetForProject(int proId)
+        {
+            ICollection<Budget> budgets;
+            budgets = db.Budgets.Where(i => i.ProjectId == proId).Include(u => u.User).Include(p => p.Project).ToList();
+            return View(budgets);
+        }
+
         // GET: Budgets/Details/5
         public ActionResult Details(int? id)
         {

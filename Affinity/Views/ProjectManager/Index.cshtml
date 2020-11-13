@@ -50,8 +50,9 @@
                 @Html.DisplayFor(modelItem => item.Priority)
             </td>
             <td>
-                @Html.ActionLink("Show All Tasks", "GetAllTasksByProject", new {proId = item.Id}, null)  | 
-                @Html.ActionLink("Mark Project as Completed", "MarkProjectAsCompleted", new { projectId = item.Id }, null)
+                @Html.ActionLink("Show All Tasks", "GetAllTasksByProject", new { proId = item.Id }, null)  |
+                @Html.ActionLink("Mark Project as Completed", "MarkProjectAsCompleted", new { projectId = item.Id }, null) |
+                @Html.ActionLink("Show Budget", "ShowBudgetForProject", "Budgets", new { proId = item.Id }, null)
             </td>
         </tr>
     }
