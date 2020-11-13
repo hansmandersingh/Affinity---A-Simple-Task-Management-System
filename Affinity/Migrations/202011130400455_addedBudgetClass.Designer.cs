@@ -7,13 +7,13 @@ namespace Affinity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddBudgetClass : IMigrationMetadata
+    public sealed partial class addedBudgetClass : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddBudgetClass));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addedBudgetClass));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011122155405_AddBudgetClass"; }
+            get { return "202011130400455_addedBudgetClass"; }
         }
         
         string IMigrationMetadata.Source

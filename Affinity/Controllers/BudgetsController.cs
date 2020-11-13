@@ -17,7 +17,7 @@ namespace Affinity.Controllers
         // GET: Budgets
         public ActionResult Index()
         {
-            var budgets = db.Budgets.Include(b => b.Project);
+            var budgets = db.Budgets.Include(b => b.Project).Include(b => b.User);
             return View(budgets.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace Affinity.Controllers
         public ActionResult Create()
         {
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name");
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace Affinity.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,budget,ProjectId,Salary")] Budget budget)
+        public ActionResult Create([Bind(Include = "Id,budgetAmount,ProjectId,UserId,Salary")] Budget budget)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +59,7 @@ namespace Affinity.Controllers
             }
 
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", budget.ProjectId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", budget.UserId);
             return View(budget);
         }
 
@@ -74,6 +76,7 @@ namespace Affinity.Controllers
                 return HttpNotFound();
             }
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", budget.ProjectId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", budget.UserId);
             return View(budget);
         }
 
@@ -82,7 +85,7 @@ namespace Affinity.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,budget,ProjectId,Salary")] Budget budget)
+        public ActionResult Edit([Bind(Include = "Id,budgetAmount,ProjectId,UserId,Salary")] Budget budget)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +94,7 @@ namespace Affinity.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name", budget.ProjectId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", budget.UserId);
             return View(budget);
         }
 

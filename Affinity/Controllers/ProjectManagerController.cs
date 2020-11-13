@@ -33,8 +33,8 @@ namespace Affinity.Controllers
                     }
                 }
             }
-
-            ViewBag.NumberOfNotif = db.Notifications.Count(n => n.TaskId == null && n.IsWatched == false);
+            
+            ViewBag.NumberOfNotif = db.Notifications.Count(n => n.IsTaskNotif == false && n.IsWatched == false);
             return View(allProjects);
         }
 
@@ -58,9 +58,9 @@ namespace Affinity.Controllers
         }
         
 
-        public ActionResult HideCompletedTask()
+        public ActionResult HideCompletedTask(int proId)
         {
-            var allTasksWithoutHidden = TaskHelper.getAllTasks();
+            var allTasksWithoutHidden = TaskHelper.getAllTasks().Where(t => t.ProjectId == proId).ToList();
             return View(allTasksWithoutHidden);
         }
         public ActionResult MarkProjectAsCompleted(int projectId)
@@ -88,7 +88,7 @@ namespace Affinity.Controllers
 
         public ActionResult NotificationsPage()
         {
-            var notifications = db.Notifications.Where(n => n.TaskId == null || n.ProjectId == null).ToList();
+            var notifications = db.Notifications.Where(n => n.IsTaskNotif == false).ToList();
             return View(notifications);
         }
         public ActionResult AllUnfinishedTasksAfterDeadline()

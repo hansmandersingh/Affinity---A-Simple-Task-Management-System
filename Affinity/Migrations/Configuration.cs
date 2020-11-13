@@ -32,8 +32,23 @@ namespace Affinity.Migrations
                     roleManager.Create(role);
                 }
 
-                // Create test users
-                var user = userManager.FindByName("admin");
+                var developerRole = roleManager.FindByName("developer");
+
+                if (developerRole == null)
+                {
+                    developerRole = new IdentityRole("developer");
+                    roleManager.Create(developerRole);
+                }
+
+                var projectManager = roleManager.FindByName("project manager");
+                if (projectManager == null)
+                {
+                    projectManager = new IdentityRole("project manager");
+                    roleManager.Create(projectManager);
+                }
+
+                // Create admin test user
+                var user = userManager.FindByName("admin@admin.net");
                 if (user == null)
                 {
                     var newUser = new ApplicationUser()
@@ -45,6 +60,38 @@ namespace Affinity.Migrations
                     userManager.Create(newUser, "Password@1");
                     userManager.SetLockoutEnabled(newUser.Id, false);
                     userManager.AddToRole(newUser.Id, "admin");
+                }
+
+                //Create Developer test user
+                var developer = userManager.FindByName("developer@developer.net");
+                if (developer == null)
+                {
+                    var newDeveloper = new ApplicationUser()
+                    {
+                        UserName = "developer@developer.net",
+                        Email = "developer@developer.net",
+                        PhoneNumber = "5551234567",
+                    };
+
+                    userManager.Create(newDeveloper, "Password@1");
+                    userManager.SetLockoutEnabled(newDeveloper.Id, false);
+                    userManager.AddToRole(newDeveloper.Id, "developer");
+                }
+
+                //Create Project Manager test user
+                var projectManagerUser = userManager.FindByName("projectmanager@projectmanager.net");
+                if(projectManagerUser == null)
+                {
+                    var newProjectManager = new ApplicationUser()
+                    {
+                        UserName = "projectmanager@projectmanager.net",
+                        Email = "projectmanager@projectmanager.net",
+                        PhoneNumber = "5551234567",
+                    };
+
+                    userManager.Create(newProjectManager, "Password@1");
+                    userManager.SetLockoutEnabled(newProjectManager.Id, false);
+                    userManager.AddToRole(newProjectManager.Id, "developer");
                 }
             }
             //  This method will be called after migrating to the latest version.
