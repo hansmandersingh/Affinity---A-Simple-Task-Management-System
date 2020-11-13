@@ -249,3 +249,4 @@ C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.csproj.CoreCompileInp
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.csproj.CopyComplete
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.dll
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.pdb
+C:\Users\NAV\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.csprojAssemblyReference.cache
