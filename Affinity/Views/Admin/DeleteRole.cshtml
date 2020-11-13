@@ -3,10 +3,12 @@
     ViewBag.Title = "DeleteRole";
 }
 
-<h2>Delete a Role</h2>
+<div class="jumbotron">
+    <h1>Delete Role</h1>
+</div>
 
 @using (Html.BeginForm())
 {
     <h4>Enter role name to delete: </h4> @Html.TextBox("roleName")
-    <input type="submit" name="Delete Role" value="save"/>
+    <input type="submit" name="Delete Role" value="Delete"/>
 }

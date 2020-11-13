@@ -4,6 +4,7 @@
 }
 
 <h2>Tasks</h2>
+
 <table class="table">
     <tr>
         <th>
@@ -57,9 +58,9 @@
                     @Html.DisplayFor(modelItem => item.Priority)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Edit", "Edit", "Tasks", new { id = item.Id }, null) |
+                    @Html.ActionLink("Details", "Details", "Tasks", new { id = item.Id }, null) |
+                    @Html.ActionLink("Delete", "Delete", "Tasks", new { id = item.Id }, null)
                 </td>
             </tr>
         }

@@ -15,6 +15,7 @@ namespace Affinity.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Tasks
+        [Authorize(Roles = "admin")]
         public ActionResult Index()
         {
             var tasks = db.Tasks.Include(t => t.Project).Include(t => t.User);
@@ -37,6 +38,7 @@ namespace Affinity.Controllers
         }
 
         // GET: Tasks/Create
+        [Authorize(Roles = "admin, project manager")]
         public ActionResult Create()
         {
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name");
@@ -64,6 +66,7 @@ namespace Affinity.Controllers
         }
 
         // GET: Tasks/Edit/5
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -99,6 +102,7 @@ namespace Affinity.Controllers
         }
 
         // GET: Tasks/Delete/5
+        [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

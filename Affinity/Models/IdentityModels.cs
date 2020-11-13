@@ -13,11 +13,13 @@ namespace Affinity.Models
     {
         public ICollection<Task> Tasks { get; set; }
         public ICollection<Comment> Notes { get; set; }
-       
+        public ICollection<Budget> Budgets { get; set; }
+
         public ApplicationUser()
         {
             Tasks = new HashSet<Task>();
             Notes = new HashSet<Comment>();
+            Budgets = new HashSet<Budget>();
         }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -34,6 +36,8 @@ namespace Affinity.Models
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Budget> Budgets { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

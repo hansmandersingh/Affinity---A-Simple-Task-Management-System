@@ -4,10 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>All Projects</h2>
+<h2>Project Manager Dashboard</h2>
 
 <h4>You have @ViewBag.NumberOfNotif notifications</h4>
 <h4>@Html.ActionLink("View Notifications", "NotificationsPage", "ProjectManager")</h4>
+
+<h4>@Html.ActionLink("Create a new task.", "Create", "Tasks")</h4>
 
 <table class="table">
     <tr>
