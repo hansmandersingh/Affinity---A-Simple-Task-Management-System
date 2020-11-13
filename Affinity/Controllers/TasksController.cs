@@ -38,7 +38,7 @@ namespace Affinity.Controllers
         }
 
         // GET: Tasks/Create
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, project manager")]
         public ActionResult Create()
         {
             ViewBag.ProjectId = new SelectList(db.Projects, "Id", "Name");
