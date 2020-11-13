@@ -16,6 +16,7 @@ namespace Affinity.Models
         public Priority Priority { get; set; }
         public DateTime DeadLine { get; set; }
         public ICollection<Notification> Notifications { get; set; }
+        
         public Project()
         {
             Time = DateTime.Now;
