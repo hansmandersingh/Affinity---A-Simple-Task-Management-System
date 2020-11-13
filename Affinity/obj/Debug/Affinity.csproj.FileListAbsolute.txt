@@ -248,5 +248,9 @@ C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.dll
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.pdb
 C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.AddBudgetClass.resources
+<<<<<<< HEAD
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.Migrations.AddBudgetClass.resources
 C:\Users\Hans\Desktop\Affinity\Affinity\obj\Debug\Affinity.csprojAssemblyReference.cache
+=======
+C:\Users\sthak\Source\Repos\Affinity---A-Simple-Task-Management-System\Affinity\obj\Debug\Affinity.Migrations.changesinBudgetClass.resources
+>>>>>>> AddBudgetClass
