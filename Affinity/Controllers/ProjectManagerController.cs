@@ -47,8 +47,11 @@ namespace Affinity.Controllers
                 case "SortAccordingCompletionPercentage":
                     allTasks = TaskHelper.getAllTasks().Where(t => t.ProjectId == proId).OrderByDescending(i => i.CompletedPercentage).ToList();
                     break;
-                default:
+                case "SortAccordingTime":
                     allTasks = TaskHelper.getAllTasks().Where(t => t.ProjectId == proId).OrderByDescending(i => i.Time).ToList();
+                    break;
+                default:
+                    allTasks = TaskHelper.getAllTasks().Where(t => t.ProjectId == proId).ToList();
                     break;
             }
             return View(allTasks);
